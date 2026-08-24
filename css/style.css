@@ -1499,3 +1499,18 @@ a {
     box-shadow:
         0 6px 18px rgba(37, 99, 235, 0.20);
 }
+/* ===== HEADING SCROLL REVEAL ===== */
+
+.heading-reveal {
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.heading-reveal.heading-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

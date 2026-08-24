@@ -281,13 +281,234 @@ a {
     color: var(--muted);
     margin-bottom: 22px;
 }
+/* =========================
+   CURRENT FOCUS
+========================= */
+
+.focus-section {
+    padding: 110px 0;
+    background: var(--bg);
+}
+
+.focus-heading {
+    max-width: 720px;
+    margin-bottom: 55px;
+}
+
+.focus-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.focus-intro {
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.focus-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 30px;
+    transition: 0.3s ease;
+}
+
+.focus-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(23, 59, 103, 0.08);
+    border-color: rgba(23, 59, 103, 0.25);
+}
+
+.focus-number {
+    display: block;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.focus-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.focus-card p {
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 0.96rem;
+}
+/* =========================
+   RESEARCH
+========================= */
+
+.research-section {
+    padding: 110px 0;
+    background: #ffffff;
+}
+
+.research-heading {
+    max-width: 800px;
+    margin-bottom: 55px;
+}
+
+.research-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.research-intro {
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+    max-width: 760px;
+}
+
+
+/* Research Cards */
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+}
+
+.research-card {
+    position: relative;
+    padding: 38px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(23, 59, 103, 0.08);
+}
+
+.research-established {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(23, 59, 103, 0.06),
+            #ffffff
+        );
+}
+
+.research-developing {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(47, 111, 143, 0.08),
+            #ffffff
+        );
+}
+
+.research-status {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 22px;
+}
+
+.research-card h3 {
+    font-size: 1.45rem;
+    margin-bottom: 16px;
+}
+
+.research-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+
+/* Research Tags */
+
+.research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.research-tags span {
+    background: rgba(23, 59, 103, 0.06);
+    border: 1px solid rgba(23, 59, 103, 0.10);
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+
+/* Research Bridge */
+
+.research-bridge {
+    margin-top: 55px;
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    gap: 28px;
+    max-width: 900px;
+}
+
+.bridge-line {
+    background: linear-gradient(
+        to bottom,
+        var(--primary),
+        var(--accent)
+    );
+
+    border-radius: 10px;
+}
+
+.bridge-content {
+    padding: 10px 0;
+}
+
+.bridge-label {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.bridge-content h3 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.35;
+    margin-bottom: 15px;
+}
+
+.bridge-content > p:last-child {
+    color: var(--muted);
+    line-height: 1.8;
+}
 
 /* =========================
    RESPONSIVE
 ========================= */
 
 @media (max-width: 900px) {
-
+.focus-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
     .nav-links {
         gap: 16px;
     }
@@ -300,6 +521,28 @@ a {
 
 
 @media (max-width: 760px) {
+    .research-grid {
+    grid-template-columns: 1fr;
+}
+
+.research-section {
+    padding: 75px 0;
+}
+
+.research-card {
+    padding: 28px;
+}
+
+.research-bridge {
+    gap: 18px;
+}
+    .focus-grid {
+    grid-template-columns: 1fr;
+}
+
+.focus-section {
+    padding: 75px 0;
+}
     .about-grid {
     grid-template-columns: 1fr;
     gap: 35px;

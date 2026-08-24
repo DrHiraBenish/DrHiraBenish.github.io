@@ -76,6 +76,28 @@ a {
     font-weight: 700;
     letter-spacing: 1px;
 }
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.brand-text strong {
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+.brand-text small {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.4px;
+}
 
 .nav-links {
     display: flex;

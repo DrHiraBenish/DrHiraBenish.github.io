@@ -857,3 +857,136 @@ a {
         grid-template-columns: 1fr !important;
     }
 }
+/* ===== TEACHING PREVIEW FIX ===== */
+
+.teaching-section {
+    padding: 100px 0;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(20, 184, 166, 0.07),
+            transparent 30%
+        ),
+        #ffffff;
+}
+
+.teaching-layout {
+    display: grid !important;
+    grid-template-columns: 0.9fr 1.1fr !important;
+    gap: 75px !important;
+    align-items: start;
+}
+
+.teaching-intro {
+    max-width: 520px;
+}
+
+.teaching-intro h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.teaching-intro > p:not(.section-label) {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+
+/* Course Panel */
+
+.course-list {
+    border-top: 1px solid var(--border);
+    background: rgba(246, 248, 252, 0.65);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(11, 31, 58, 0.05);
+}
+
+.course-item {
+    display: grid !important;
+    grid-template-columns: 50px 1fr !important;
+    gap: 15px;
+    align-items: center;
+
+    padding: 22px 26px !important;
+
+    border-bottom: 1px solid var(--border);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        padding 0.3s ease;
+}
+
+.course-item:last-child {
+    border-bottom: none;
+}
+
+.course-item:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37, 99, 235, 0.07),
+            rgba(20, 184, 166, 0.04)
+        );
+
+    transform: translateX(6px);
+}
+
+.course-item > span {
+    display: flex;
+    width: 34px;
+    height: 34px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--teal)
+    );
+
+    color: white;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.course-item h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.08rem;
+    color: var(--text);
+}
+
+.course-item small {
+    color: var(--muted);
+    font-size: 0.74rem;
+}
+
+@media (max-width: 900px) {
+
+    .teaching-layout {
+        grid-template-columns: 1fr !important;
+        gap: 45px !important;
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .teaching-section {
+        padding: 70px 0;
+    }
+
+    .course-item {
+        padding: 19px 20px !important;
+    }
+
+}

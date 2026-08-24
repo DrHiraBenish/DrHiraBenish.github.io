@@ -157,6 +157,12 @@ a {
 
     margin-bottom: 22px;
 }
+.hero-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+}
 
 .hero h1 {
     max-width: 1000px;

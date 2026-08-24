@@ -541,12 +541,114 @@ a {
     color: var(--muted);
     line-height: 1.8;
 }
+/* =========================
+   PROJECTS PREVIEW
+========================= */
+
+.projects-section {
+    padding: 95px 0;
+    background: linear-gradient(
+        180deg,
+        #F6F8FC,
+        #EEF5FF
+    );
+}
+
+.projects-heading {
+    max-width: 760px;
+    margin-bottom: 42px;
+}
+
+.projects-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.projects-intro {
+    color: var(--muted);
+    font-size: 1.06rem;
+    line-height: 1.8;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.preview-card {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    transition: 0.3s ease;
+}
+
+.preview-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(11,31,58,0.10);
+}
+
+.featured-preview {
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(20,184,166,0.14),
+            transparent 35%
+        ),
+        white;
+}
+
+.preview-type {
+    display: inline-block;
+    color: var(--blue);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    margin-bottom: 18px;
+}
+
+.preview-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.preview-card p {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.preview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.preview-tags span {
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(37,99,235,0.07);
+    color: var(--blue);
+    font-size: 0.74rem;
+    font-weight: 600;
+}
+
+.projects-section .section-link {
+    margin-top: 30px;
+}
 
 /* =========================
    RESPONSIVE
 ========================= */
 
 @media (max-width: 900px) {
+    .teaching-layout {
+    grid-template-columns: 1fr;
+    gap: 45px;
+}
 .focus-grid {
     grid-template-columns: repeat(2, 1fr);
 }
@@ -562,6 +664,16 @@ a {
 
 
 @media (max-width: 760px) {
+    .teaching-section {
+    padding: 70px 0;
+}
+    .preview-grid {
+    grid-template-columns: 1fr;
+}
+
+.projects-section {
+    padding: 70px 0;
+}
     .research-grid {
     grid-template-columns: 1fr;
 }

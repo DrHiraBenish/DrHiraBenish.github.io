@@ -1,11 +1,31 @@
 :root {
-    --bg: #f7f9fc;
-    --surface: #ffffff;
-    --text: #172033;
+    --bg: #F6F8FC;
+    --surface: #FFFFFF;
+
+    --text: #152238;
     --muted: #667085;
-    --primary: #173b67;
-    --accent: #2f6f8f;
-    --border: #e4e7ec;
+
+    --primary: #0B1F3A;
+    --blue: #2563EB;
+    --teal: #14B8A6;
+    --violet: #7C3AED;
+    --gold: #D4A84F;
+
+    --accent: #2563EB;
+
+    --border: #E2E8F0;
+
+    --gradient-main: linear-gradient(
+        135deg,
+        #2563EB,
+        #14B8A6
+    );
+
+    --gradient-ai: linear-gradient(
+        135deg,
+        #2563EB,
+        #7C3AED
+    );
 }
 
 /* Reset */
@@ -128,17 +148,27 @@ a {
     align-items: center;
 
     background:
-        radial-gradient(
-            circle at 82% 25%,
-            rgba(47, 111, 143, 0.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #ffffff 0%,
-            #f4f8fb 55%,
-            #eef4f8 100%
-        );
+    radial-gradient(
+        circle at 82% 20%,
+        rgba(37, 99, 235, 0.17),
+        transparent 27%
+    ),
+    radial-gradient(
+        circle at 72% 75%,
+        rgba(20, 184, 166, 0.10),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 15% 80%,
+        rgba(124, 58, 237, 0.07),
+        transparent 25%
+    ),
+    linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #F5F8FF 50%,
+        #F3FAFA 100%
+    );
 }
 
 .hero-content {
@@ -164,15 +194,19 @@ a {
     margin-bottom: 14px;
 }
 
-.hero h1 {
-    max-width: 1000px;
+.hero h1 span {
+    display: block;
 
-    font-size: clamp(2.8rem, 5.5vw, 5rem);
-    line-height: 1.05;
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--teal),
+        var(--violet)
+    );
 
-    letter-spacing: -2px;
-
-    margin-bottom: 28px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero h1 span {

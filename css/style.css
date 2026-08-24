@@ -1358,20 +1358,20 @@ a {
 
 /* Scroll Reveal */
 
+/* ===== SCROLL REVEAL FIX ===== */
+
 .reveal {
     opacity: 0;
-
-    transform: translateY(35px);
+    translate: 0 45px;
 
     transition:
-        opacity 0.75s ease,
-        transform 0.75s ease;
+        opacity 0.8s ease,
+        translate 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.reveal-visible {
+.reveal.reveal-visible {
     opacity: 1;
-
-    transform: translateY(0);
+    translate: 0 0;
 }
 
 
@@ -1462,4 +1462,40 @@ a {
         display: none;
     }
 
+}
+/* ===== HEADER SCROLL EFFECT FIX ===== */
+
+.site-header {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.site-header.header-scrolled {
+    background: rgba(255, 255, 255, 0.94);
+
+    border-bottom-color: rgba(37, 99, 235, 0.12);
+
+    box-shadow:
+        0 10px 35px rgba(11, 31, 58, 0.12);
+}
+
+.site-header .logo {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.site-header.header-scrolled .logo {
+    transform: scale(0.92);
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.20);
 }

@@ -67,7 +67,47 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach((element) => {
         revealObserver.observe(element);
     });
+/* =====================================
+   HEADING SCROLL REVEAL
+===================================== */
 
+const headingElements = document.querySelectorAll(
+    ".about-section .section-heading, " +
+    ".focus-section .focus-heading, " +
+    ".research-section .research-heading, " +
+    ".projects-section .projects-heading, " +
+    ".teaching-section .teaching-intro, " +
+    ".engagement-section .engagement-heading, " +
+    ".connect-section .connect-main"
+);
+
+headingElements.forEach((heading) => {
+    heading.classList.add("heading-reveal");
+});
+
+const headingObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("heading-visible");
+
+                headingObserver.unobserve(entry.target);
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.20
+    }
+);
+
+headingElements.forEach((heading) => {
+    headingObserver.observe(heading);
+});
 
     /* =====================================
        3. 3D CARD TILT

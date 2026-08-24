@@ -24,20 +24,27 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================== */
 
     const revealElements = document.querySelectorAll(
-        ".about-section, " +
-        ".focus-card, " +
-        ".research-preview-item, " +
-        ".preview-card, " +
-        ".teaching-intro, " +
-        ".course-item, " +
-        ".engagement-card, " +
-        ".connect-main, " +
-        ".connect-card"
-    );
+    ".about-grid, " +
+    ".focus-heading, " +
+    ".focus-card, " +
+    ".research-heading, " +
+    ".research-preview-item, " +
+    ".projects-heading, " +
+    ".preview-card, " +
+    ".teaching-intro, " +
+    ".course-item, " +
+    ".engagement-heading, " +
+    ".engagement-card, " +
+    ".connect-main, " +
+    ".connect-card"
+);
 
     revealElements.forEach((element) => {
         element.classList.add("reveal");
     });
+   revealElements.forEach((element, index) => {
+    element.style.transitionDelay = `${(index % 4) * 0.08}s`;
+});
 
     const revealObserver = new IntersectionObserver(
         (entries) => {
@@ -67,11 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================== */
 
     const tiltCards = document.querySelectorAll(
-        ".focus-card, " +
-        ".research-preview-item, " +
-        ".preview-card, " +
-        ".engagement-card"
-    );
+    ".focus-card, " +
+    ".research-preview-item, " +
+    ".preview-card, " +
+    ".engagement-card, " +
+    ".course-item, " +
+    ".connect-card"
+);
 
     tiltCards.forEach((card) => {
 

@@ -109,24 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const timeline = document.querySelector("[data-timeline]");
+    const careerArchive = document.querySelector("[data-career-archive]");
 
-    if (timeline) {
-        if (reducedMotion.matches || !("IntersectionObserver" in window)) {
-            timeline.classList.add("timeline-active");
-        } else {
-            const timelineObserver = new IntersectionObserver(
-                (entries, observer) => {
-                    if (!entries.some((entry) => entry.isIntersecting)) return;
-                    timeline.classList.add("timeline-active");
-                    observer.disconnect();
-                },
-                { threshold: 0.08, rootMargin: "0px 0px -60px" }
-            );
-
-            timelineObserver.observe(timeline);
-        }
-    }
+    careerArchive?.querySelectorAll("details").forEach((entry) => {
+        entry.addEventListener("toggle", () => {
+            if (!entry.open) return;
+            careerArchive.querySelectorAll("details[open]").forEach((otherEntry) => {
+                if (otherEntry !== entry) otherEntry.open = false;
+            });
+        });
+    });
 
     const personalNetworkCanvas = document.querySelector(".personal-network-canvas");
 
@@ -134,13 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const context = personalNetworkCanvas.getContext("2d");
         const hero = personalNetworkCanvas.closest(".personal-hero");
         const clusterCenters = [
-            [0.055, 0.18],
-            [0.38, 0.09],
-            [0.76, 0.16],
-            [0.92, 0.43],
-            [0.16, 0.68],
-            [0.52, 0.82],
-            [0.86, 0.76]
+            [0.48, 0.055],
+            [0.985, 0.13],
+            [0.61, 0.42],
+            [0.015, 0.52],
+            [0.985, 0.62]
         ];
         let width = 0;
         let height = 0;
@@ -157,18 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         const clusters = clusterCenters.map((center, clusterIndex) => {
-            const nodeCount = 4 + (clusterIndex % 3);
+            const nodeCount = 3 + (clusterIndex % 3);
             const nodes = Array.from({ length: nodeCount }, (_, nodeIndex) => ({
-                x: (random() - 0.5) * (95 + clusterIndex * 4),
-                y: (random() - 0.5) * 82,
-                z: (random() - 0.5) * 125,
-                radius: 1.6 + random() * 2.1,
+                x: (random() - 0.5) * (78 + clusterIndex * 3),
+                y: (random() - 0.5) * 62,
+                z: (random() - 0.5) * 105,
+                radius: 1.25 + random() * 1.35,
                 tone: nodeIndex % 3 === 0 ? "bronze" : "plum"
             }));
-            const edges = nodes.map((_, index) => [index, (index + 1) % nodes.length]);
-
-            if (nodes.length > 4) edges.push([0, 3]);
-            if (nodes.length > 5) edges.push([1, 4]);
+            const edges = Array.from({ length: nodes.length - 1 }, (_, index) => [index, index + 1]);
 
             return {
                 center,
@@ -232,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cluster.edges.forEach(([from, to]) => {
                     const first = projected[from];
                     const second = projected[to];
-                    const depthAlpha = Math.max(0.1, Math.min(0.3, 0.2 - (first.z + second.z) / 1500));
+                    const depthAlpha = Math.max(0.07, Math.min(0.18, 0.13 - (first.z + second.z) / 1800));
                     const gradient = context.createLinearGradient(first.x, first.y, second.x, second.y);
                     gradient.addColorStop(0, `rgba(141, 64, 88, ${depthAlpha})`);
                     gradient.addColorStop(1, `rgba(173, 112, 73, ${depthAlpha * 0.75})`);
@@ -247,15 +234,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 [...projected]
                     .sort((first, second) => second.z - first.z)
                     .forEach((node) => {
-                        const alpha = Math.max(0.34, Math.min(0.84, 0.62 - node.z / 430));
+                        const alpha = Math.max(0.28, Math.min(0.62, 0.46 - node.z / 520));
                         context.beginPath();
-                        context.arc(node.x, node.y, Math.max(1.6, node.radius), 0, Math.PI * 2);
+                        context.arc(node.x, node.y, Math.max(1.25, node.radius), 0, Math.PI * 2);
                         context.fillStyle = node.tone === "bronze"
                             ? `rgba(173, 112, 73, ${alpha})`
                             : `rgba(141, 64, 88, ${alpha})`;
                         context.fill();
 
-                        if (node.radius > 2.5) {
+                        if (node.radius > 2.2) {
                             context.beginPath();
                             context.arc(node.x, node.y, node.radius + 4, 0, Math.PI * 2);
                             context.strokeStyle = `rgba(141, 64, 88, ${alpha * 0.14})`;

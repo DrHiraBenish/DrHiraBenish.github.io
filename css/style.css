@@ -5976,3 +5976,418 @@ body[data-page="about"] .split-heading h2 {
         animation: none;
     }
 }
+
+/* Distinct visual patterns: spectrum, weave and career archive */
+
+.personal-hero::before {
+    position: absolute;
+    z-index: 0;
+    right: -12%;
+    bottom: -34%;
+    left: -12%;
+    height: 76%;
+    content: "";
+    background-image:
+        linear-gradient(rgba(141, 64, 88, 0.085) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(173, 112, 73, 0.075) 1px, transparent 1px);
+    background-position: center bottom;
+    background-size: 58px 58px;
+    opacity: 0.52;
+    transform: perspective(680px) rotateX(63deg) scale(1.35);
+    transform-origin: center bottom;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 5%, #000 58%, #000);
+    mask-image: linear-gradient(to bottom, transparent 5%, #000 58%, #000);
+    animation: depth-plane-drift 18s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes depth-plane-drift {
+    to { background-position: 58px 58px; }
+}
+
+.personal-network-canvas {
+    opacity: 0.46;
+}
+
+.personal-spectrum {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: 205px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 28px 0 34px;
+    perspective: 1100px;
+    list-style: none;
+}
+
+.personal-spectrum li {
+    --spectrum-lift: 0px;
+    position: relative;
+    display: flex;
+    min-width: 0;
+    padding: 26px 22px;
+    justify-content: flex-start;
+    flex-direction: column;
+    transform: translateY(var(--spectrum-lift));
+    transform-style: preserve-3d;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.personal-spectrum li:nth-child(2) { --spectrum-lift: 34px; }
+.personal-spectrum li:nth-child(3) { --spectrum-lift: -10px; }
+.personal-spectrum li:nth-child(4) { --spectrum-lift: 29px; }
+.personal-spectrum li:nth-child(5) { --spectrum-lift: -4px; }
+
+.personal-spectrum li::after {
+    position: absolute;
+    right: 20%;
+    bottom: 5px;
+    left: 20%;
+    height: 16px;
+    content: "";
+    background: radial-gradient(ellipse, rgba(72, 43, 54, 0.16), transparent 70%);
+    filter: blur(6px);
+    opacity: 0.42;
+    transform: translateZ(-30px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.personal-spectrum i {
+    margin-bottom: 17px;
+    color: #ad7049;
+    font-size: 0.62rem;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.personal-spectrum strong {
+    max-width: 220px;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(1.18rem, 1.65vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.08;
+}
+
+.personal-spectrum span {
+    max-width: 220px;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.7rem;
+}
+
+.personal-spectrum li:hover {
+    color: var(--blue);
+    transform: translate3d(0, calc(var(--spectrum-lift) - 8px), 30px) rotateX(-2deg);
+}
+
+.personal-spectrum li:hover::after {
+    opacity: 0.68;
+    transform: translateZ(-45px) scale(1.12);
+}
+
+.motion-ready .personal-spectrum li {
+    opacity: 0;
+    transform: translate3d(0, 36px, -80px) rotateX(-14deg);
+}
+
+.motion-ready .personal-spectrum.is-visible li {
+    animation: spectrum-rise 0.78s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+}
+
+.motion-ready .personal-spectrum.is-visible li:nth-child(2) { animation-delay: 0.1s; }
+.motion-ready .personal-spectrum.is-visible li:nth-child(3) { animation-delay: 0.2s; }
+.motion-ready .personal-spectrum.is-visible li:nth-child(4) { animation-delay: 0.3s; }
+.motion-ready .personal-spectrum.is-visible li:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes spectrum-rise {
+    to { opacity: 1; transform: translate3d(0, var(--spectrum-lift), 0) rotateX(0); }
+}
+
+.development-grid.development-weave {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 42px 82px;
+    padding: 12px 0;
+}
+
+.development-grid.development-weave::before,
+.development-grid.development-weave::after {
+    display: none;
+}
+
+.development-grid.development-weave article {
+    min-height: 235px;
+    margin: 0;
+    padding: 30px 0 24px 82px;
+    background: transparent;
+    border: 0;
+    transform: none;
+}
+
+.development-grid.development-weave article:nth-child(even) {
+    margin-top: 58px;
+}
+
+.development-grid.development-weave article::before {
+    top: 17px;
+    left: 0;
+    display: block;
+    width: auto;
+    height: auto;
+    content: counter(development-step, decimal-leading-zero);
+    color: rgba(141, 64, 88, 0.18);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 3.4rem;
+    font-weight: 500;
+    line-height: 1;
+    transform: none;
+    transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.development-grid.development-weave article:hover {
+    transform: translateX(8px);
+}
+
+.development-grid.development-weave article:hover::before {
+    color: rgba(141, 64, 88, 0.42);
+    background: transparent;
+    box-shadow: none;
+    transform: translateY(-5px);
+}
+
+.development-grid.development-weave h3 {
+    margin-top: 22px;
+}
+
+.career-archive {
+    counter-reset: career-entry;
+}
+
+.career-archive details {
+    counter-increment: career-entry;
+    position: relative;
+    background: transparent;
+    border-bottom: 1px solid rgba(151, 119, 116, 0.24);
+    transition: background 0.35s ease;
+}
+
+.career-archive details:first-child {
+    border-top: 1px solid rgba(151, 119, 116, 0.24);
+}
+
+.career-archive details[open] {
+    background:
+        radial-gradient(circle at 93% 20%, rgba(173, 112, 73, 0.11), transparent 24%),
+        rgba(255, 253, 250, 0.62);
+}
+
+.career-archive summary {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr) 44px;
+    align-items: center;
+    min-height: 128px;
+    padding: 25px 30px;
+    gap: 42px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.career-archive summary::-webkit-details-marker {
+    display: none;
+}
+
+.career-archive summary::before {
+    position: absolute;
+    top: 21px;
+    right: 88px;
+    content: counter(career-entry, decimal-leading-zero);
+    color: rgba(141, 64, 88, 0.11);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.career-archive time {
+    color: var(--blue);
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.career-archive summary > span {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    transition: transform 0.35s ease;
+}
+
+.career-archive summary:hover > span {
+    transform: translateX(8px);
+}
+
+.career-archive small {
+    color: var(--blue);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.career-archive strong {
+    margin-top: 8px;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(1.65rem, 2.6vw, 2.65rem);
+    font-weight: 500;
+    line-height: 1.08;
+}
+
+.career-archive summary > i {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    color: var(--blue);
+    border: 1px solid rgba(141, 64, 88, 0.38);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    transition: color 0.3s ease, background 0.3s ease, transform 0.35s ease;
+}
+
+.career-archive details[open] summary > i {
+    color: #fff;
+    background: var(--blue);
+    transform: rotate(45deg);
+}
+
+.career-detail {
+    padding: 0 110px 34px 262px;
+    animation: career-detail-open 0.42s ease both;
+}
+
+.career-detail p {
+    max-width: 790px;
+    color: var(--muted);
+}
+
+@keyframes career-detail-open {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1020px) {
+    .personal-spectrum {
+        grid-template-columns: repeat(3, 1fr);
+        min-height: 320px;
+    }
+
+    .personal-spectrum li:nth-child(n) {
+        --spectrum-lift: 0px;
+    }
+
+    .personal-spectrum li:nth-child(2),
+    .personal-spectrum li:nth-child(5) {
+        --spectrum-lift: 28px;
+    }
+
+    .career-archive summary {
+        grid-template-columns: 150px minmax(0, 1fr) 44px;
+        gap: 28px;
+    }
+
+    .career-detail {
+        padding-left: 208px;
+    }
+}
+
+@media (max-width: 760px) {
+    .personal-hero::before {
+        bottom: -20%;
+        height: 52%;
+        opacity: 0.36;
+    }
+
+    .personal-spectrum {
+        grid-template-columns: 1fr 1fr;
+        min-height: 0;
+        padding: 20px 0 28px;
+    }
+
+    .personal-spectrum li:nth-child(n) {
+        --spectrum-lift: 0px;
+        min-height: 145px;
+        padding: 20px 12px;
+    }
+
+    .personal-spectrum li:last-child {
+        grid-column: 1 / -1;
+        min-height: 120px;
+    }
+
+    .development-grid.development-weave {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-left: 0;
+    }
+
+    .development-grid.development-weave article,
+    .development-grid.development-weave article:nth-child(even) {
+        min-height: 0;
+        margin-top: 0;
+        padding: 24px 0 30px 66px;
+    }
+
+    .development-grid.development-weave article::before {
+        top: 20px;
+        left: 0;
+        font-size: 2.75rem;
+    }
+
+    .career-archive summary {
+        position: relative;
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 26px 58px 26px 18px;
+        gap: 12px;
+    }
+
+    .career-archive summary::before {
+        display: none;
+    }
+
+    .career-archive summary > i {
+        position: absolute;
+        top: 29px;
+        right: 12px;
+    }
+
+    .career-archive strong {
+        font-size: 1.65rem;
+    }
+
+    .career-detail {
+        padding: 0 58px 28px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .personal-hero::before,
+    .motion-ready .personal-spectrum.is-visible li {
+        animation: none;
+    }
+}

@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=12">
+    <link rel="stylesheet" href="css/style.css?v=13">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -42,18 +42,7 @@
 
     <main id="main-content">
         <section class="personal-hero">
-            <svg class="personal-network-background" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <g class="personal-network-lines">
-                    <path d="M32 178 238 92 430 226 650 112 835 248 1038 94 1240 218 1410 106"/>
-                    <path d="M-20 454 188 326 390 492 606 330 806 520 1010 350 1226 504 1460 338"/>
-                    <path d="M148 70 188 326 238 92M430 226 390 492 606 330 650 112M835 248 806 520 1010 350 1038 94M1240 218 1226 504"/>
-                    <path d="M390 492 564 690 806 520 1000 686 1226 504 1404 656"/>
-                </g>
-                <g class="personal-network-nodes">
-                    <circle cx="32" cy="178" r="6"/><circle cx="238" cy="92" r="9"/><circle cx="430" cy="226" r="6"/><circle cx="650" cy="112" r="8"/><circle cx="835" cy="248" r="7"/><circle cx="1038" cy="94" r="10"/><circle cx="1240" cy="218" r="7"/><circle cx="1410" cy="106" r="5"/>
-                    <circle cx="188" cy="326" r="7"/><circle cx="390" cy="492" r="10"/><circle cx="606" cy="330" r="6"/><circle cx="806" cy="520" r="8"/><circle cx="1010" cy="350" r="6"/><circle cx="1226" cy="504" r="10"/><circle cx="564" cy="690" r="6"/><circle cx="1000" cy="686" r="7"/><circle cx="1404" cy="656" r="6"/>
-                </g>
-            </svg>
+            <canvas class="personal-network-canvas" aria-hidden="true"></canvas>
             <div class="container personal-hero-grid">
                 <div class="personal-hero-copy" data-reveal>
                     <p class="eyebrow"><span></span> Personal academic portfolio</p>
@@ -63,7 +52,7 @@
                     <div class="hero-actions"><a class="button button-primary" href="research.html">Explore my research <span>↗</span></a><a class="button button-secondary" href="about.html">View my journey <span>→</span></a></div>
                     <div class="hero-links" aria-label="Professional profiles"><a href="https://www.linkedin.com/in/dr-hira-benish/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/DrHiraBenish" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://pmai.online" target="_blank" rel="noopener noreferrer">PMAI Lab</a></div>
                 </div>
-                <aside class="profile-edition" data-reveal data-delay="120" aria-label="Academic profile summary">
+                <aside class="profile-edition" data-reveal data-delay="120" data-tilt aria-label="Academic profile summary">
                     <div class="edition-top"><span>Academic profile</span><b>01</b></div>
                     <div class="edition-monogram" aria-hidden="true">HB</div>
                     <p class="edition-name">Hira Benish, PhD</p>
@@ -71,7 +60,7 @@
                     <p class="edition-signature">Mathematics · Research · Impact</p>
                 </aside>
             </div>
-            <div class="container personal-facts" data-reveal data-delay="180"><div><strong>Academic Leadership</strong><span>Departments, programmes and people</span></div><div><strong>PMAI Lab</strong><span>Co-Founder &amp; Director</span></div><div><strong>PhD Mathematics</strong><span>Graph Theory specialization</span></div><div><strong>8+ Years Teaching</strong><span>University education</span></div><div><strong>Google Data Analytics</strong><span>Professional learning</span></div></div>
+            <ol class="container personal-journey" data-reveal data-delay="180" aria-label="Professional highlights"><li><i aria-hidden="true">01</i><strong>Academic Leadership</strong><span>Departments, programmes and people</span></li><li><i aria-hidden="true">02</i><strong>PMAI Lab</strong><span>Co-Founder &amp; Director</span></li><li><i aria-hidden="true">03</i><strong>PhD Mathematics</strong><span>Graph Theory specialization</span></li><li><i aria-hidden="true">04</i><strong>8+ Years Teaching</strong><span>University education</span></li><li><i aria-hidden="true">05</i><strong>Google Data Analytics</strong><span>Professional learning</span></li></ol>
         </section>
 
         <section class="home-statement section-pad">
@@ -86,7 +75,7 @@
             <div class="container">
                 <div class="editorial-heading" data-reveal><p><span>02</span> Current focus</p><h2>One research question, viewed from several mathematical angles.</h2></div>
                 <div class="focus-editorial-grid">
-                    <article class="focus-feature" data-reveal><div class="focus-meta"><span>Research in development</span><b>Graph learning</b></div><p class="focus-equation" aria-hidden="true">r(v | W)</p><h3>Metric Dimension for Graph Learning</h3><p>I am investigating metric-coordinate features from resolving sets as a mathematically interpretable way to improve node representation and structural awareness in neural networks and GNNs.</p><a class="card-link" href="research.html">Follow the research direction <span>↗</span></a></article>
+                    <article class="focus-feature" data-reveal data-tilt><div class="focus-meta"><span>Research in development</span><b>Graph learning</b></div><p class="focus-equation" aria-hidden="true">r(v | W)</p><h3>Metric Dimension for Graph Learning</h3><p>I am investigating metric-coordinate features from resolving sets as a mathematically interpretable way to improve node representation and structural awareness in neural networks and GNNs.</p><a class="card-link" href="research.html">Follow the research direction <span>↗</span></a></article>
                     <div class="focus-notes" data-reveal data-delay="100"><article><span>Foundation</span><h3>Graph Theory</h3><p>Distance, resolving sets and distinguishing parameters.</p></article><article><span>Bridge</span><h3>Representation</h3><p>Turning network position into informative coordinates.</p></article><article><span>Direction</span><h3>Mathematical AI</h3><p>Adding structural reasoning to modern learning systems.</p></article></div>
                 </div>
             </div>
@@ -102,7 +91,7 @@
         <section class="home-development section-pad">
             <div class="container">
                 <div class="editorial-heading" data-reveal><p><span>05</span> Development in practice</p><h2>Building pathways from mathematics to data and AI.</h2></div>
-                <div class="development-grid">
+                <div class="development-grid development-path">
                     <article data-reveal><span>Academic programme</span><h3>BS Mathematics with Data Analytics</h3><p>A contemporary degree pathway combining mathematical foundations with Python, analytics, projects and industry exposure.</p></article>
                     <article data-reveal data-delay="60"><span>Curriculum bridge</span><h3>Mathematics for Modern Technologies</h3><p>Teaching and learning design that connects Linear Algebra, Graph Theory and computation with Data Science, Machine Learning and AI.</p></article>
                     <article data-reveal data-delay="120"><span>Faculty development</span><h3>Python &amp; Applied Learning</h3><p>Practical workshops and learning initiatives that help educators and students build computational confidence.</p></article>
@@ -117,6 +106,6 @@
     </main>
 
     <footer class="site-footer"><div class="container footer-layout"><div><a class="footer-brand" href="index.html">Dr. Hira Benish</a><p>Mathematics · Research · Data · Intelligence</p></div><nav aria-label="Footer navigation"><a href="about.html">About</a><a href="research.html">Research</a><a href="teaching.html">Teaching</a><a href="projects.html">Projects</a><a href="contact.html">Connect</a></nav><div class="footer-meta"><p>Associate Professor of Mathematics &amp; Head of Department</p><p>© <span data-current-year>2026</span> Dr. Hira Benish</p></div></div></footer>
-    <script src="js/script.js?v=6"></script>
+    <script src="js/script.js?v=7"></script>
 </body>
 </html>

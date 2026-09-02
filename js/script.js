@@ -1,434 +1,320 @@
-/* =========================================
-   DR. HIRA BENISH — PORTFOLIO INTERACTIONS
-========================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* =====================================
-       1. HEADER SCROLL EFFECT
-    ===================================== */
-
+    const body = document.body;
     const header = document.querySelector(".site-header");
+    const nav = document.querySelector(".primary-nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 30) {
-            header?.classList.add("header-scrolled");
-        } else {
-            header?.classList.remove("header-scrolled");
+    body.classList.add("nav-enhanced");
+
+    const currentPage = body.dataset.page;
+    document.querySelectorAll("[data-nav]").forEach((link) => {
+        if (link.dataset.nav === currentPage) {
+            link.classList.add("is-active");
+            link.setAttribute("aria-current", "page");
         }
     });
 
+    const updateHeader = () => {
+        header?.classList.toggle("is-scrolled", window.scrollY > 18);
+    };
 
-    /* =====================================
-       2. SCROLL REVEAL
-    ===================================== */
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
 
-    const revealElements = document.querySelectorAll(
-    ".about-grid, " +
-    ".focus-heading, " +
-    ".focus-card, " +
-    ".research-heading, " +
-    ".research-preview-item, " +
-    ".projects-heading, " +
-    ".preview-card, " +
-    ".teaching-intro, " +
-    ".course-item, " +
-    ".engagement-heading, " +
-    ".engagement-card, " +
-    ".connect-main, " +
-    ".connect-card"
-);
+    const closeNavigation = () => {
+        if (!nav || !navToggle) return;
+        nav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.querySelector(".sr-only").textContent = "Open navigation";
+        body.classList.remove("nav-open");
+    };
 
-    revealElements.forEach((element) => {
-        element.classList.add("reveal");
-    });
-   revealElements.forEach((element, index) => {
-    element.style.transitionDelay = `${(index % 4) * 0.08}s`;
-});
-
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach((entry) => {
-
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal-visible");
-                    revealObserver.unobserve(entry.target);
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
-/* =====================================
-   HEADING SCROLL REVEAL
-===================================== */
-
-const headingElements = document.querySelectorAll(
-    ".about-section .section-heading, " +
-    ".focus-section .focus-heading, " +
-    ".research-section .research-heading, " +
-    ".projects-section .projects-heading, " +
-    ".teaching-section .teaching-intro, " +
-    ".engagement-section .engagement-heading, " +
-    ".connect-section .connect-main"
-);
-
-headingElements.forEach((heading) => {
-    heading.classList.add("heading-reveal");
-});
-
-const headingObserver = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("heading-visible");
-
-                headingObserver.unobserve(entry.target);
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.20
-    }
-);
-
-headingElements.forEach((heading) => {
-    headingObserver.observe(heading);
-});
-
-    /* =====================================
-       3. 3D CARD TILT
-    ===================================== */
-
-    const tiltCards = document.querySelectorAll(
-    ".focus-card, " +
-    ".research-preview-item, " +
-    ".preview-card, " +
-    ".engagement-card, " +
-    ".course-item, " +
-    ".connect-card"
-);
-
-    tiltCards.forEach((card) => {
-
-        card.classList.add("tilt-card");
-
-        card.addEventListener("mousemove", (event) => {
-
-            if (window.innerWidth < 900) return;
-
-            const rect = card.getBoundingClientRect();
-
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -3;
-            const rotateY = ((x - centerX) / centerX) * 3;
-
-            card.style.transform =
-                `perspective(900px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-6px)`;
-
-        });
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform =
-                "perspective(900px) rotateX(0deg) rotateY(0deg)";
-
-        });
-
+    navToggle?.addEventListener("click", () => {
+        if (!nav) return;
+        const isOpen = nav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+        navToggle.querySelector(".sr-only").textContent = isOpen ? "Close navigation" : "Open navigation";
+        body.classList.toggle("nav-open", isOpen);
     });
 
+    nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
 
-    /* =====================================
-       4. HERO NETWORK / GRAPH ANIMATION
-    ===================================== */
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeNavigation();
+    });
 
-    const hero = document.querySelector(".hero");
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) closeNavigation();
+    });
 
-    if (hero) {
+    const revealItems = [...document.querySelectorAll("[data-reveal]")];
 
-        const canvas = document.createElement("canvas");
+    revealItems.forEach((item) => {
+        const delay = Number(item.dataset.delay || 0);
+        item.style.setProperty("--reveal-delay", `${delay}ms`);
+    });
 
-        canvas.id = "network-canvas";
-        canvas.setAttribute("aria-hidden", "true");
-
-        hero.prepend(canvas);
-
-        const ctx = canvas.getContext("2d");
-
-        let width;
-        let height;
-        let nodes = [];
-
-        const mouse = {
-            x: null,
-            y: null
-        };
-
-
-        function resizeCanvas() {
-
-            width = hero.offsetWidth;
-            height = hero.offsetHeight;
-
-            const ratio = window.devicePixelRatio || 1;
-
-            canvas.width = width * ratio;
-            canvas.height = height * ratio;
-
-            canvas.style.width = width + "px";
-            canvas.style.height = height + "px";
-
-            ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-            createNodes();
-        }
-
-
-        function createNodes() {
-
-            nodes = [];
-
-            let nodeCount;
-
-            if (window.innerWidth < 700) {
-                nodeCount = 28;
-            } else if (window.innerWidth < 1100) {
-                nodeCount = 40;
-            } else {
-                nodeCount = 55;
-            }
-
-            for (let i = 0; i < nodeCount; i++) {
-
-                nodes.push({
-
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-
-                    vx: (Math.random() - 0.5) * 0.25,
-                    vy: (Math.random() - 0.5) * 0.25,
-
-                    radius: Math.random() * 1.5 + 1
-
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
                 });
-
-            }
-        }
-
-
-        hero.addEventListener("mousemove", (event) => {
-
-            const rect = hero.getBoundingClientRect();
-
-            mouse.x = event.clientX - rect.left;
-            mouse.y = event.clientY - rect.top;
-
-        });
-
-
-        hero.addEventListener("mouseleave", () => {
-
-            mouse.x = null;
-            mouse.y = null;
-
-        });
-
-
-        function drawNetwork() {
-
-            ctx.clearRect(0, 0, width, height);
-
-
-            /* Move nodes */
-
-            nodes.forEach((node) => {
-
-                node.x += node.vx;
-                node.y += node.vy;
-
-                if (node.x < 0 || node.x > width) {
-                    node.vx *= -1;
-                }
-
-                if (node.y < 0 || node.y > height) {
-                    node.vy *= -1;
-                }
-
-
-                /* Mouse interaction */
-
-                if (mouse.x !== null) {
-
-                    const dx = mouse.x - node.x;
-                    const dy = mouse.y - node.y;
-
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 140 && distance > 0) {
-
-                        node.x -= dx * 0.0015;
-                        node.y -= dy * 0.0015;
-
-                    }
-
-                }
-
-            });
-
-
-            /* Connections */
-
-            for (let i = 0; i < nodes.length; i++) {
-
-                for (let j = i + 1; j < nodes.length; j++) {
-
-                    const dx = nodes[i].x - nodes[j].x;
-                    const dy = nodes[i].y - nodes[j].y;
-
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 145) {
-
-                        const opacity =
-                            (1 - distance / 145) * 0.20;
-
-                        ctx.beginPath();
-
-                        ctx.moveTo(
-                            nodes[i].x,
-                            nodes[i].y
-                        );
-
-                        ctx.lineTo(
-                            nodes[j].x,
-                            nodes[j].y
-                        );
-
-                        ctx.strokeStyle =
-                            `rgba(37, 99, 235, ${opacity})`;
-
-                        ctx.lineWidth = 1;
-
-                        ctx.stroke();
-
-                    }
-
-                }
-
-            }
-
-
-            /* Draw nodes */
-
-            nodes.forEach((node, index) => {
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    node.x,
-                    node.y,
-                    node.radius,
-                    0,
-                    Math.PI * 2
-                );
-
-                if (index % 3 === 0) {
-
-                    ctx.fillStyle =
-                        "rgba(20, 184, 166, 0.55)";
-
-                } else if (index % 5 === 0) {
-
-                    ctx.fillStyle =
-                        "rgba(124, 58, 237, 0.45)";
-
-                } else {
-
-                    ctx.fillStyle =
-                        "rgba(37, 99, 235, 0.50)";
-
-                }
-
-                ctx.fill();
-
-            });
-
-
-            requestAnimationFrame(drawNetwork);
-
-        }
-
-
-        resizeCanvas();
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -40px" }
         );
 
-        drawNetwork();
+        revealItems.forEach((item) => revealObserver.observe(item));
+        body.classList.add("motion-ready");
     }
 
+    const heroVisual = document.querySelector(".hero-visual");
+    const heroVisualWrap = document.querySelector(".hero-visual-wrap");
+    const finePointer = window.matchMedia("(pointer: fine)");
 
-    /* =====================================
-       5. HERO MOUSE PARALLAX
-    ===================================== */
-
-    const heroContent =
-        document.querySelector(".hero-content");
-
-    if (hero && heroContent) {
-
-        hero.addEventListener("mousemove", (event) => {
-
-            if (window.innerWidth < 900) return;
-
-            const rect = hero.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left) / rect.width - 0.5;
-
-            const y =
-                (event.clientY - rect.top) / rect.height - 0.5;
-
-            heroContent.style.transform =
-                `translate3d(
-                    ${x * 5}px,
-                    ${y * 4}px,
-                    0
-                )`;
-
+    if (heroVisual && heroVisualWrap && finePointer.matches && !reducedMotion.matches) {
+        heroVisualWrap.addEventListener("pointermove", (event) => {
+            const bounds = heroVisualWrap.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            heroVisual.style.setProperty("--rx", `${y * -5}deg`);
+            heroVisual.style.setProperty("--ry", `${x * 6}deg`);
         });
 
-
-        hero.addEventListener("mouseleave", () => {
-
-            heroContent.style.transform =
-                "translate3d(0,0,0)";
-
+        heroVisualWrap.addEventListener("pointerleave", () => {
+            heroVisual.style.setProperty("--rx", "0deg");
+            heroVisual.style.setProperty("--ry", "0deg");
         });
-
     }
 
+    document.querySelectorAll("[data-tilt]").forEach((item) => {
+        if (!finePointer.matches || reducedMotion.matches) return;
+
+        item.addEventListener("pointermove", (event) => {
+            const bounds = item.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            item.style.setProperty("--tilt-x", `${y * -2.4}deg`);
+            item.style.setProperty("--tilt-y", `${x * 3}deg`);
+        });
+
+        item.addEventListener("pointerleave", () => {
+            item.style.setProperty("--tilt-x", "0deg");
+            item.style.setProperty("--tilt-y", "0deg");
+        });
+    });
+
+    const careerArchive = document.querySelector("[data-career-archive]");
+
+    careerArchive?.querySelectorAll("details").forEach((entry) => {
+        entry.addEventListener("toggle", () => {
+            if (!entry.open) return;
+            careerArchive.querySelectorAll("details[open]").forEach((otherEntry) => {
+                if (otherEntry !== entry) otherEntry.open = false;
+            });
+        });
+    });
+
+    const personalNetworkCanvas = document.querySelector(".personal-network-canvas");
+
+    if (personalNetworkCanvas) {
+        const context = personalNetworkCanvas.getContext("2d");
+        const hero = personalNetworkCanvas.closest(".personal-hero");
+        const clusterCenters = [
+            [0.48, 0.055],
+            [0.985, 0.13],
+            [0.61, 0.42],
+            [0.015, 0.52],
+            [0.985, 0.62]
+        ];
+        let width = 0;
+        let height = 0;
+        let animationFrame = 0;
+        let pointerX = 0;
+        let pointerY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        let seed = 93817;
+
+        const random = () => {
+            seed = (seed * 16807) % 2147483647;
+            return (seed - 1) / 2147483646;
+        };
+
+        const clusters = clusterCenters.map((center, clusterIndex) => {
+            const nodeCount = 3 + (clusterIndex % 3);
+            const nodes = Array.from({ length: nodeCount }, (_, nodeIndex) => ({
+                x: (random() - 0.5) * (78 + clusterIndex * 3),
+                y: (random() - 0.5) * 62,
+                z: (random() - 0.5) * 105,
+                radius: 1.25 + random() * 1.35,
+                tone: nodeIndex % 3 === 0 ? "bronze" : "plum"
+            }));
+            const edges = Array.from({ length: nodes.length - 1 }, (_, index) => [index, index + 1]);
+
+            return {
+                center,
+                nodes,
+                edges,
+                phase: random() * Math.PI * 2,
+                direction: clusterIndex % 2 === 0 ? 1 : -1
+            };
+        });
+
+        const resizeNetwork = () => {
+            if (!hero || !context) return;
+            const bounds = hero.getBoundingClientRect();
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+            width = Math.max(1, bounds.width);
+            height = Math.max(1, bounds.height);
+            personalNetworkCanvas.width = Math.round(width * pixelRatio);
+            personalNetworkCanvas.height = Math.round(height * pixelRatio);
+            personalNetworkCanvas.style.width = `${width}px`;
+            personalNetworkCanvas.style.height = `${height}px`;
+            context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        };
+
+        const projectCluster = (cluster, time) => {
+            const angleY = time * 0.00011 * cluster.direction + cluster.phase + pointerX * 0.2;
+            const angleX = Math.sin(time * 0.00016 + cluster.phase) * 0.2 + pointerY * 0.15;
+            const cosY = Math.cos(angleY);
+            const sinY = Math.sin(angleY);
+            const cosX = Math.cos(angleX);
+            const sinX = Math.sin(angleX);
+            const responsiveScale = Math.min(1, Math.max(0.62, width / 1250));
+            const centerX = cluster.center[0] * width + pointerX * 17 * cluster.direction;
+            const centerY = cluster.center[1] * height + pointerY * 12;
+
+            return cluster.nodes.map((node) => {
+                const rotatedX = node.x * cosY - node.z * sinY;
+                const firstZ = node.x * sinY + node.z * cosY;
+                const rotatedY = node.y * cosX - firstZ * sinX;
+                const rotatedZ = node.y * sinX + firstZ * cosX;
+                const perspective = 390 / (390 + rotatedZ);
+
+                return {
+                    x: centerX + rotatedX * perspective * responsiveScale,
+                    y: centerY + rotatedY * perspective * responsiveScale + Math.sin(time * 0.00055 + cluster.phase) * 5,
+                    z: rotatedZ,
+                    radius: node.radius * perspective,
+                    tone: node.tone
+                };
+            });
+        };
+
+        const drawNetwork = (time = 0) => {
+            if (!context || !width || !height) return;
+            context.clearRect(0, 0, width, height);
+            pointerX += (targetX - pointerX) * 0.035;
+            pointerY += (targetY - pointerY) * 0.035;
+
+            clusters.forEach((cluster) => {
+                const projected = projectCluster(cluster, time);
+
+                cluster.edges.forEach(([from, to]) => {
+                    const first = projected[from];
+                    const second = projected[to];
+                    const depthAlpha = Math.max(0.07, Math.min(0.18, 0.13 - (first.z + second.z) / 1800));
+                    const gradient = context.createLinearGradient(first.x, first.y, second.x, second.y);
+                    gradient.addColorStop(0, `rgba(141, 64, 88, ${depthAlpha})`);
+                    gradient.addColorStop(1, `rgba(173, 112, 73, ${depthAlpha * 0.75})`);
+                    context.beginPath();
+                    context.moveTo(first.x, first.y);
+                    context.lineTo(second.x, second.y);
+                    context.strokeStyle = gradient;
+                    context.lineWidth = 1;
+                    context.stroke();
+                });
+
+                [...projected]
+                    .sort((first, second) => second.z - first.z)
+                    .forEach((node) => {
+                        const alpha = Math.max(0.28, Math.min(0.62, 0.46 - node.z / 520));
+                        context.beginPath();
+                        context.arc(node.x, node.y, Math.max(1.25, node.radius), 0, Math.PI * 2);
+                        context.fillStyle = node.tone === "bronze"
+                            ? `rgba(173, 112, 73, ${alpha})`
+                            : `rgba(141, 64, 88, ${alpha})`;
+                        context.fill();
+
+                        if (node.radius > 2.2) {
+                            context.beginPath();
+                            context.arc(node.x, node.y, node.radius + 4, 0, Math.PI * 2);
+                            context.strokeStyle = `rgba(141, 64, 88, ${alpha * 0.14})`;
+                            context.lineWidth = 3;
+                            context.stroke();
+                        }
+                    });
+            });
+        };
+
+        const animateNetwork = (time) => {
+            drawNetwork(time);
+            animationFrame = window.requestAnimationFrame(animateNetwork);
+        };
+
+        hero?.addEventListener("pointermove", (event) => {
+            if (!finePointer.matches || reducedMotion.matches) return;
+            const bounds = hero.getBoundingClientRect();
+            targetX = (event.clientX - bounds.left) / bounds.width - 0.5;
+            targetY = (event.clientY - bounds.top) / bounds.height - 0.5;
+        });
+
+        hero?.addEventListener("pointerleave", () => {
+            targetX = 0;
+            targetY = 0;
+        });
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                window.cancelAnimationFrame(animationFrame);
+                return;
+            }
+            if (!reducedMotion.matches) animationFrame = window.requestAnimationFrame(animateNetwork);
+        });
+
+        resizeNetwork();
+
+        if ("ResizeObserver" in window && hero) {
+            new ResizeObserver(resizeNetwork).observe(hero);
+        } else {
+            window.addEventListener("resize", resizeNetwork);
+        }
+
+        if (reducedMotion.matches) {
+            drawNetwork(0);
+        } else {
+            animationFrame = window.requestAnimationFrame(animateNetwork);
+        }
+    }
+
+    const filterControls = [...document.querySelectorAll("[data-filter-control]")];
+    const filterItems = [...document.querySelectorAll("[data-filter-item]")];
+
+    filterControls.forEach((control) => {
+        control.addEventListener("click", () => {
+            const selected = control.dataset.filterControl;
+
+            filterControls.forEach((button) => {
+                const active = button === control;
+                button.classList.toggle("is-active", active);
+                button.setAttribute("aria-pressed", String(active));
+            });
+
+            filterItems.forEach((item) => {
+                const categories = (item.dataset.filterItem || "").split(" ");
+                const show = selected === "all" || categories.includes(selected);
+                item.hidden = !show;
+            });
+        });
+    });
+
+    document.querySelectorAll("[data-current-year]").forEach((item) => {
+        item.textContent = String(new Date().getFullYear());
+    });
 });

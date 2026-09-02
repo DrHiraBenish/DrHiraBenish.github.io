@@ -5307,3 +5307,342 @@ blockquote {
         margin-top: 8px;
     }
 }
+
+/* Home and About refinement — September 2026 */
+
+body[data-page="home"],
+body[data-page="about"] {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+body[data-page="home"] h1,
+body[data-page="home"] h2,
+body[data-page="home"] h3,
+body[data-page="home"] blockquote,
+body[data-page="about"] h1,
+body[data-page="about"] h2,
+body[data-page="about"] h3,
+body[data-page="about"] h4,
+body[data-page="about"] blockquote {
+    font-family: "Source Serif 4", Georgia, serif;
+    letter-spacing: -0.025em;
+}
+
+.personal-network-background {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.34;
+}
+
+.personal-network-lines {
+    fill: none;
+    stroke: #a67578;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 3 12;
+    animation: personal-network-drift 26s linear infinite;
+}
+
+.personal-network-nodes {
+    fill: #8d4058;
+    stroke: #fffdfa;
+    stroke-width: 3;
+}
+
+.personal-network-nodes circle {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.personal-network-nodes circle:nth-child(3n) {
+    fill: #ad7049;
+    animation: personal-network-pulse 5.4s ease-in-out infinite;
+}
+
+.personal-network-nodes circle:nth-child(3n + 1) {
+    animation: personal-network-pulse 5.4s 1.8s ease-in-out infinite;
+}
+
+@keyframes personal-network-drift {
+    to { stroke-dashoffset: -120; }
+}
+
+@keyframes personal-network-pulse {
+    50% { opacity: 0.36; transform: scale(0.72); }
+}
+
+.personal-hero-grid,
+.personal-facts {
+    position: relative;
+    z-index: 1;
+}
+
+.personal-hero-grid {
+    min-height: 590px;
+}
+
+.personal-hero h1 {
+    font-size: clamp(3.65rem, 5.5vw, 5.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.personal-hero h1 > span {
+    margin-top: 17px;
+    font-size: 0.44em;
+    line-height: 1.08;
+}
+
+.personal-facts {
+    background: rgba(255, 253, 250, 0.78);
+    border-top-color: #d9cac4;
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+}
+
+.personal-facts strong {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.personal-facts span {
+    font-size: 0.67rem;
+}
+
+.home-development {
+    background:
+        radial-gradient(circle at 88% 8%, rgba(173, 112, 73, 0.12), transparent 26%),
+        #f5efea;
+    border-block: 1px solid #e4d7d1;
+}
+
+.development-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #cdbdb6;
+    border-left: 1px solid #cdbdb6;
+}
+
+.development-grid article {
+    min-height: 245px;
+    padding: 36px;
+    background: rgba(255, 253, 250, 0.56);
+    border-right: 1px solid #cdbdb6;
+    border-bottom: 1px solid #cdbdb6;
+}
+
+.development-grid article > span {
+    color: var(--blue);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.development-grid h3 {
+    max-width: 470px;
+    margin: 38px 0 14px;
+    font-size: clamp(1.65rem, 2.7vw, 2.45rem);
+    line-height: 1.08;
+}
+
+.development-grid p {
+    max-width: 510px;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.about-editorial-hero {
+    padding: 78px 0 86px;
+}
+
+.about-biography {
+    max-width: 1030px;
+}
+
+.about-biography .eyebrow {
+    margin-bottom: 34px;
+}
+
+.biography-role {
+    margin-bottom: 10px;
+    color: var(--blue);
+    font-size: 0.71rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.editorial-page-hero .about-biography h1 {
+    margin-bottom: 30px;
+    font-size: clamp(3.6rem, 6vw, 5.7rem);
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+}
+
+.about-biography .biography-lead {
+    max-width: 980px;
+    margin-bottom: 18px;
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.5;
+}
+
+.about-biography > p:last-child {
+    max-width: 900px;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+body[data-page="home"] .editorial-heading h2,
+body[data-page="about"] .editorial-heading h2 {
+    font-size: clamp(2.45rem, 4vw, 4.15rem);
+    line-height: 1.08;
+}
+
+body[data-page="home"] .statement-layout h2,
+body[data-page="about"] .section-heading h2,
+body[data-page="about"] .split-heading h2 {
+    line-height: 1.08;
+}
+
+.career-ledger {
+    position: relative;
+    display: grid;
+    gap: 18px;
+    border-top: 0;
+}
+
+.career-ledger::before {
+    position: absolute;
+    z-index: 1;
+    top: 38px;
+    bottom: 38px;
+    left: 216px;
+    width: 1px;
+    content: "";
+    background: linear-gradient(#8d4058, #ad7049, #8d4058);
+}
+
+.career-ledger article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    min-height: 175px;
+    padding: 30px;
+    gap: 58px;
+    background: #fffdfa;
+    border: 1px solid #ded1cb;
+    box-shadow: 0 12px 30px rgba(61, 37, 48, 0.045);
+}
+
+.career-ledger article::before {
+    position: absolute;
+    z-index: 2;
+    top: 39px;
+    left: 209px;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background: #fffdfa;
+    border: 4px solid var(--blue);
+    border-radius: 50%;
+}
+
+.career-ledger time {
+    padding-top: 4px;
+    line-height: 1.55;
+}
+
+.career-ledger h3 {
+    margin-top: 7px;
+    font-size: 1.65rem;
+}
+
+@media (max-width: 1020px) {
+    .development-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .development-grid article {
+        min-height: 0;
+    }
+
+    .career-ledger::before {
+        left: 196px;
+    }
+
+    .career-ledger article {
+        grid-template-columns: 160px minmax(0, 1fr);
+        gap: 48px;
+    }
+
+    .career-ledger article::before {
+        left: 189px;
+    }
+}
+
+@media (max-width: 760px) {
+    .personal-network-background {
+        width: 165%;
+        opacity: 0.24;
+        transform: translateX(-32%);
+    }
+
+    .personal-hero h1 {
+        font-size: clamp(3rem, 13vw, 4.15rem);
+        line-height: 1;
+    }
+
+    .development-grid article {
+        padding: 28px 24px;
+    }
+
+    .development-grid h3 {
+        margin-top: 24px;
+    }
+
+    .about-editorial-hero {
+        padding: 56px 0 66px;
+    }
+
+    .editorial-page-hero .about-biography h1 {
+        font-size: clamp(3rem, 14vw, 4.2rem);
+        line-height: 1.04;
+    }
+
+    .about-biography .biography-lead {
+        font-size: 1.2rem;
+    }
+
+    .career-ledger {
+        gap: 14px;
+    }
+
+    .career-ledger::before,
+    .career-ledger article::before {
+        display: none;
+    }
+
+    .career-ledger article {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 26px 24px;
+        gap: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .personal-network-lines,
+    .personal-network-nodes circle {
+        animation: none;
+    }
+}

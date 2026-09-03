@@ -16,11 +16,69 @@
         <section class="project-portfolio section-pad"><div class="container"><div class="split-heading" data-reveal><div><p class="section-kicker">Selected portfolio</p><h2>Work grounded in evidence and learning.</h2></div><p>Projects include completed analyses, structured educational resources and research pipelines under active development.</p></div>
             <div class="filter-bar" data-reveal aria-label="Filter projects"><button class="is-active" type="button" data-filter-control="all" aria-pressed="true">All</button><button type="button" data-filter-control="research" aria-pressed="false">Research</button><button type="button" data-filter-control="data" aria-pressed="false">Data</button><button type="button" data-filter-control="teaching" aria-pressed="false">Teaching</button><button type="button" data-filter-control="leadership" aria-pressed="false">Leadership</button></div>
             <div class="project-grid">
-                <article class="project-card project-card-wide" data-filter-item="research" data-reveal><div class="project-visual graph-project" aria-hidden="true"><span class="gp-node a"></span><span class="gp-node b"></span><span class="gp-node c"></span><span class="gp-node d"></span><span class="gp-node e"></span><i class="gp-edge e1"></i><i class="gp-edge e2"></i><i class="gp-edge e3"></i><strong>r(v | W)</strong></div><div class="project-content"><div class="project-meta"><span>Research pipeline</span><b>In development</b></div><h3>Metric-Dimension-Augmented Graph Learning</h3><p>A research pipeline exploring metric coordinates from resolving sets as structural node features for neural networks and GNNs.</p><div class="tag-row"><span>Graph Theory</span><span>GNN</span><span>Python</span><span>Representation</span></div><a class="card-link" href="research.html">Explore the methodology <span>↗</span></a></div></article>
-                <article class="project-card" data-filter-item="data" data-reveal data-delay="60"><div class="project-visual chart-project" aria-hidden="true"><span style="--h:38%"></span><span style="--h:56%"></span><span style="--h:45%"></span><span style="--h:81%"></span><span style="--h:68%"></span><i></i></div><div class="project-content"><div class="project-meta"><span>Data Science</span><b>Completed analysis</b></div><h3>Retail Sales Exploratory Analysis</h3><p>A reproducible Python analysis of data quality, transaction distributions, daily performance and customer contribution, supported by statistical interpretation.</p><div class="project-evidence"><span><strong>277</strong> analysed records</span><span><strong>86</strong> customers</span></div><a class="card-link" href="projects/retail-sales-analysis/">View case study <span>→</span></a></div></article>
-                <article class="project-card" data-filter-item="teaching" data-reveal data-delay="120"><div class="project-visual algebra-project" aria-hidden="true"><strong>UΣVᵀ</strong><span>A =</span></div><div class="project-content"><div class="project-meta"><span>Teaching resource</span><b>10 lectures</b></div><h3>Linear Algebra for Machine Learning</h3><p>A complete learning pathway supported by Python, applied examples, practice activities and case studies.</p><div class="tag-row"><span>Vectors</span><span>Eigenvalues</span><span>SVD</span></div><a class="card-link" href="teaching.html">Explore teaching <span>↗</span></a></div></article>
-                <article class="project-card" data-filter-item="leadership teaching" data-reveal data-delay="180"><div class="project-visual curriculum-project" aria-hidden="true"><span>Math</span><i>+</i><span>Data</span><i>+</i><span>AI</span></div><div class="project-content"><div class="project-meta"><span>Program development</span><b>Academic leadership</b></div><h3>BS Mathematics with Data Analytics</h3><p>A curriculum model combining mathematics, statistics, Python, analytics, projects, internships and emerging computational applications.</p><div class="tag-row"><span>Curriculum</span><span>Analytics</span><span>Employability</span></div><a class="card-link" href="index.html#program-leadership">View leadership profile <span>↗</span></a></div></article>
-                <article class="project-card project-card-wide" data-filter-item="teaching data" data-reveal data-delay="240"><div class="project-visual lab-project" aria-hidden="true"><div><span>&gt;&gt;&gt;</span> experiment()</div><strong>Math → Python → Insight</strong></div><div class="project-content"><div class="project-meta"><span>Interactive learning</span><b>Growing collection</b></div><h3>Python–Mathematics Learning Labs</h3><p>Browser-based and Colab-ready experiments that let learners manipulate mathematical ideas, run code and interpret results instead of reading passively.</p><div class="tag-row"><span>Python</span><span>Colab</span><span>Interactive</span><span>Visualization</span></div><a class="card-link" href="https://pmai.online" target="_blank" rel="noopener noreferrer">Explore PMAI Lab <span>↗</span></a></div></article>
+                <article class="project-card" data-filter-item="data" data-reveal>
+                    <div class="project-visual chart-project retail-project" aria-hidden="true">
+                        <div class="project-visual-kicker">Retail analytics</div>
+                        <div class="retail-bars">
+                            <span style="--h:38%"></span><span style="--h:56%"></span><span style="--h:45%"></span><span style="--h:81%"></span><span style="--h:68%"></span>
+                            <i></i>
+                        </div>
+                        <strong class="project-visual-label">Data → Analysis → Insight</strong>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Data Science</span><b>Completed case study</b></div>
+                        <h3>Retail Sales Exploratory Analysis</h3>
+                        <p>A reproducible Python case study examining data quality, transaction distributions, daily sales performance and customer contribution with statistical interpretation.</p>
+                        <div class="project-evidence"><span><strong>277</strong> analysed records</span><span><strong>86</strong> customers</span></div>
+                        <div class="tag-row"><span>Python</span><span>EDA</span><span>Statistics</span><span>Visualization</span></div>
+                        <a class="card-link" href="projects/retail-sales-analysis/">View case study <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-filter-item="research" data-reveal data-delay="60">
+                    <div class="project-visual graph-project research-pipeline-project" aria-hidden="true">
+                        <span class="gp-node a"></span><span class="gp-node b"></span><span class="gp-node c"></span><span class="gp-node d"></span><span class="gp-node e"></span>
+                        <i class="gp-edge e1"></i><i class="gp-edge e2"></i><i class="gp-edge e3"></i>
+                        <strong>r(v | W)</strong>
+                        <small class="project-visual-label">Structure → Coordinates → GNN</small>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Research pipeline</span><b>In development</b></div>
+                        <h3>Metric-Dimension-Augmented Graph Learning</h3>
+                        <p>A research pipeline exploring metric coordinates from resolving sets as interpretable structural node features for neural networks and graph neural networks.</p>
+                        <div class="tag-row"><span>Graph Theory</span><span>GNNs</span><span>Python</span><span>Representation</span></div>
+                        <a class="card-link" href="research.html">Explore the methodology <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-filter-item="leadership" data-reveal data-delay="120">
+                    <div class="project-visual curriculum-project" aria-hidden="true">
+                        <div class="curriculum-flow"><span>Math</span><i>+</i><span>Data</span><i>+</i><span>AI</span></div>
+                        <strong class="project-visual-label">Curriculum → Skills → Careers</strong>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Program development</span><b>Academic leadership</b></div>
+                        <h3>BS Mathematics with Data Analytics</h3>
+                        <p>A curriculum model connecting mathematics and statistics with Python, analytics, applied projects, internships and emerging computational applications.</p>
+                        <div class="tag-row"><span>Curriculum</span><span>Analytics</span><span>Projects</span><span>Employability</span></div>
+                        <a class="card-link" href="index.html#program-leadership">View leadership profile <span>↗</span></a>
+                    </div>
+                </article>
+
+                <article class="project-card" data-filter-item="teaching data" data-reveal data-delay="180">
+                    <div class="project-visual lab-project" aria-hidden="true">
+                        <div><span>&gt;&gt;&gt;</span> experiment()</div>
+                        <strong>Math → Python → Insight</strong>
+                        <small class="project-visual-label">Interactive learning labs</small>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Interactive learning</span><b>Growing collection</b></div>
+                        <h3>Python–Mathematics Learning Labs</h3>
+                        <p>Browser-based and Colab-ready experiments that let learners manipulate mathematical ideas, run code and interpret results rather than read passively.</p>
+                        <div class="tag-row"><span>Python</span><span>Colab</span><span>Interactive</span><span>Visualization</span></div>
+                        <a class="card-link" href="https://pmai.online" target="_blank" rel="noopener noreferrer">Explore PMAI Lab <span>↗</span></a>
+                    </div>
+                </article>
             </div>
         </div></section>
 

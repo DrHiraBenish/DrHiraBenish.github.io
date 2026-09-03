@@ -8827,3 +8827,203 @@ body[data-page="teaching"] .learning-quote-shell > span {
         transform: none;
     }
 }
+
+
+/* =========================================================
+   PROJECTS PAGE — COMPACT INTERACTION PASS — 2026-09-03
+========================================================= */
+
+body[data-page="projects"] .project-grid {
+    gap: 10px;
+}
+
+body[data-page="projects"] .project-card {
+    position: relative;
+    transition:
+        transform 260ms cubic-bezier(0.2, 0.75, 0.2, 1),
+        box-shadow 260ms ease,
+        border-color 260ms ease;
+}
+
+body[data-page="projects"] .project-visual {
+    min-height: 160px;
+    transition: transform 320ms cubic-bezier(0.2, 0.75, 0.2, 1), filter 260ms ease;
+}
+
+body[data-page="projects"] .project-card-wide .project-visual {
+    min-height: 230px;
+}
+
+body[data-page="projects"] .project-content {
+    padding: 18px 19px;
+}
+
+body[data-page="projects"] .project-card-wide .project-content {
+    padding: 23px 25px;
+}
+
+body[data-page="projects"] .project-content h3 {
+    margin: 14px 0 8px;
+    font-size: 1.2rem;
+}
+
+body[data-page="projects"] .project-card-wide h3 {
+    font-size: 1.5rem;
+}
+
+body[data-page="projects"] .project-content > p {
+    font-size: 0.76rem;
+    line-height: 1.48;
+}
+
+body[data-page="projects"] .project-content .tag-row {
+    margin: 12px 0;
+    gap: 5px;
+}
+
+body[data-page="projects"] .project-evidence {
+    margin: 13px 0 17px;
+    gap: 7px;
+}
+
+body[data-page="projects"] .project-evidence span {
+    padding: 7px 9px;
+}
+
+body[data-page="projects"] .project-meta b {
+    padding: 4px 7px;
+}
+
+body[data-page="projects"] .project-content .card-link span {
+    display: inline-block;
+    transition: transform 200ms ease;
+}
+
+body[data-page="projects"] .gp-node,
+body[data-page="projects"] .gp-edge,
+body[data-page="projects"] .chart-project > span,
+body[data-page="projects"] .chart-project i,
+body[data-page="projects"] .algebra-project strong,
+body[data-page="projects"] .curriculum-project span,
+body[data-page="projects"] .lab-project div,
+body[data-page="projects"] .lab-project strong {
+    transition: transform 300ms cubic-bezier(0.2, 0.75, 0.2, 1), opacity 240ms ease, filter 240ms ease;
+}
+
+body[data-page="projects"] .principle-strip article {
+    transition: transform 230ms ease, background 230ms ease, box-shadow 230ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body[data-page="projects"] .project-card:hover,
+    body[data-page="projects"] .project-card:focus-within {
+        z-index: 2;
+        border-color: rgba(141, 64, 88, 0.26);
+        box-shadow: 0 20px 42px rgba(72, 43, 55, 0.12);
+        transform: translateY(-7px);
+    }
+
+    body[data-page="projects"] .project-card:hover .project-visual,
+    body[data-page="projects"] .project-card:focus-within .project-visual {
+        filter: saturate(1.06);
+        transform: scale(1.022);
+    }
+
+    body[data-page="projects"] .project-card:hover .card-link span,
+    body[data-page="projects"] .project-card:focus-within .card-link span {
+        transform: translate(4px, -2px);
+    }
+
+    body[data-page="projects"] .project-card:hover .gp-node.a { transform: translate(-5px, -3px); }
+    body[data-page="projects"] .project-card:hover .gp-node.b { transform: translate(5px, -4px); }
+    body[data-page="projects"] .project-card:hover .gp-node.c { transform: translate(-4px, 4px); }
+    body[data-page="projects"] .project-card:hover .gp-node.d { transform: translate(5px, 4px); }
+    body[data-page="projects"] .project-card:hover .gp-node.e { transform: scale(1.12); }
+
+    body[data-page="projects"] .project-card:hover .gp-edge {
+        opacity: 0.72;
+        filter: drop-shadow(0 0 4px rgba(141, 64, 88, 0.18));
+    }
+
+    body[data-page="projects"] .project-card:hover .chart-project > span:nth-of-type(odd) {
+        transform: translateY(-7px);
+    }
+
+    body[data-page="projects"] .project-card:hover .chart-project > span:nth-of-type(even) {
+        transform: translateY(-3px);
+    }
+
+    body[data-page="projects"] .project-card:hover .chart-project i {
+        transform: rotate(-13deg) translateY(-5px);
+    }
+
+    body[data-page="projects"] .project-card:hover .algebra-project strong {
+        transform: scale(1.08) rotate(-2deg);
+    }
+
+    body[data-page="projects"] .project-card:hover .curriculum-project span:nth-of-type(1) {
+        transform: translateY(-5px);
+    }
+
+    body[data-page="projects"] .project-card:hover .curriculum-project span:nth-of-type(2) {
+        transform: translateY(4px);
+    }
+
+    body[data-page="projects"] .project-card:hover .curriculum-project span:nth-of-type(3) {
+        transform: translateY(-5px);
+    }
+
+    body[data-page="projects"] .project-card:hover .lab-project div {
+        transform: translateY(-4px);
+    }
+
+    body[data-page="projects"] .project-card:hover .lab-project strong {
+        transform: translateY(3px);
+    }
+
+    body[data-page="projects"] .principle-strip article:hover {
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 12px 26px rgba(18, 32, 55, 0.12);
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 760px) {
+    body[data-page="projects"] .project-visual,
+    body[data-page="projects"] .project-card-wide .project-visual {
+        min-height: 165px;
+    }
+
+    body[data-page="projects"] .project-content,
+    body[data-page="projects"] .project-card-wide .project-content {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body[data-page="projects"] .project-visual,
+    body[data-page="projects"] .gp-node,
+    body[data-page="projects"] .gp-edge,
+    body[data-page="projects"] .chart-project > span,
+    body[data-page="projects"] .chart-project i,
+    body[data-page="projects"] .algebra-project strong,
+    body[data-page="projects"] .curriculum-project span,
+    body[data-page="projects"] .lab-project div,
+    body[data-page="projects"] .lab-project strong,
+    body[data-page="projects"] .principle-strip article,
+    body[data-page="projects"] .project-content .card-link span {
+        transition: none;
+    }
+
+    body[data-page="projects"] .project-card:hover .project-visual,
+    body[data-page="projects"] .project-card:hover .gp-node,
+    body[data-page="projects"] .project-card:hover .chart-project > span,
+    body[data-page="projects"] .project-card:hover .chart-project i,
+    body[data-page="projects"] .project-card:hover .algebra-project strong,
+    body[data-page="projects"] .project-card:hover .curriculum-project span,
+    body[data-page="projects"] .project-card:hover .lab-project div,
+    body[data-page="projects"] .project-card:hover .lab-project strong,
+    body[data-page="projects"] .principle-strip article:hover {
+        transform: none;
+    }
+}

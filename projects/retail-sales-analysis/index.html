@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A reproducible retail sales data-science case study by Dr. Hira Benish, covering data quality, transaction patterns, customer contribution and careful statistical interpretation.">
+    <meta name="theme-color" content="#35212f">
+    <link rel="canonical" href="https://drhirabenish.github.io/projects/retail-sales-analysis/">
+    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Retail Sales Exploratory Analysis | Dr. Hira Benish">
+    <meta property="og:description" content="From 281 transaction records to reproducible evidence: an accessible data-science case study with interactive exploration and qualified conclusions.">
+    <meta property="og:url" content="https://drhirabenish.github.io/projects/retail-sales-analysis/">
+    <title>Retail Sales Exploratory Analysis | Dr. Hira Benish</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css?v=15">
+    <link rel="stylesheet" href="project.css?v=1">
+</head>
+<body data-page="projects" class="retail-case-study">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" id="site-header">
+        <div class="container nav-shell">
+            <a class="brand" href="../../index.html" aria-label="Dr. Hira Benish — Home"><span class="brand-mark" aria-hidden="true">H</span><span class="brand-copy"><strong>Dr. Hira Benish</strong><small>Mathematician · Researcher · Educator</small></span></a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation"><span class="sr-only">Open navigation</span><span></span><span></span><span></span></button>
+            <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation"><a data-nav="home" href="../../index.html">Home</a><a data-nav="about" href="../../about.html">About</a><a data-nav="research" href="../../research.html">Research</a><a data-nav="teaching" href="../../teaching.html">Teaching</a><a data-nav="projects" href="../../projects.html">Projects</a><a data-nav="speaking" href="../../speaking.html">Speaking</a><a data-nav="blogs" href="../../blogs.html">Blogs</a><a class="nav-cta" data-nav="contact" href="../../contact.html">Connect</a></nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="case-hero">
+            <div class="case-grid" aria-hidden="true"></div>
+            <div class="container case-hero-layout">
+                <div class="case-hero-copy" data-reveal>
+                    <a class="case-breadcrumb" href="../../projects.html"><span>←</span> Projects</a>
+                    <p class="eyebrow"><span></span> Data Science · Completed case study</p>
+                    <h1>Retail Sales <em>Exploratory Analysis</em></h1>
+                    <p class="case-deck">A small transaction dataset becomes a disciplined exercise in data quality, statistical reasoning, customer behaviour and honest interpretation.</p>
+                    <div class="case-actions">
+                        <a class="button button-primary" href="#explore">Explore the data <span>↓</span></a>
+                        <a class="case-text-link" href="https://github.com/DrHiraBenish/sales-data-analysis" target="_blank" rel="noopener noreferrer">View technical repository <span>↗</span></a>
+                    </div>
+                    <ul class="case-tags" aria-label="Tools used"><li>Python</li><li>Pandas</li><li>Statistics</li><li>Data visualization</li></ul>
+                </div>
+
+                <aside class="case-hero-card" data-reveal data-delay="100" aria-label="Project snapshot">
+                    <div class="hero-card-heading"><span>Project snapshot</span><b>September 2020</b></div>
+                    <div class="hero-card-total"><span>Total recorded sales</span><strong>15,547.35</strong><small>currency not specified</small></div>
+                    <div class="hero-card-metrics">
+                        <div><strong>277</strong><span>records analysed</span></div>
+                        <div><strong>86</strong><span>customers</span></div>
+                        <div><strong>56.13</strong><span>mean transaction</span></div>
+                        <div><strong>36.28</strong><span>median transaction</span></div>
+                    </div>
+                    <div class="hero-sparkline" aria-hidden="true"><i style="--h:28%"></i><i style="--h:58%"></i><i style="--h:39%"></i><i style="--h:47%"></i><i style="--h:19%"></i><i style="--h:66%"></i><i style="--h:31%"></i><i style="--h:100%"></i><i style="--h:45%"></i><i style="--h:92%"></i><i style="--h:25%"></i><i style="--h:52%"></i></div>
+                    <p class="hero-card-note"><span></span> Reproducible analysis · transparent assumptions</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="case-introduction case-section">
+            <div class="container case-intro-layout">
+                <div data-reveal>
+                    <p class="case-index">01 / Purpose</p>
+                    <h2>From raw transactions to evidence that can be questioned.</h2>
+                </div>
+                <div class="case-intro-copy" data-reveal data-delay="80">
+                    <p class="case-lead">The aim was not to decorate a dataset with charts. It was to build a traceable analysis in which every result follows from a stated decision.</p>
+                    <p>The project examines 281 retail transaction records across one month. It validates the data, handles missing sales transparently, studies the distribution of transaction values, tracks daily activity and measures customer contribution.</p>
+                    <p class="case-principle"><span>Analytical principle</span> Report what the data supports—and make the boundaries of that evidence visible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="question-section case-section">
+            <div class="container">
+                <div class="case-heading" data-reveal><p class="case-index">02 / Questions</p><h2>Six questions guided the analysis.</h2></div>
+                <ol class="question-grid">
+                    <li data-reveal><span>01</span><p>Is the dataset complete, internally consistent and suitable for analysis?</p></li>
+                    <li data-reveal data-delay="40"><span>02</span><p>What do the centre, spread and shape of transaction values reveal?</p></li>
+                    <li data-reveal data-delay="80"><span>03</span><p>How do daily sales and transaction volume change across the month?</p></li>
+                    <li data-reveal data-delay="120"><span>04</span><p>Which observed customers contribute the most recorded sales?</p></li>
+                    <li data-reveal data-delay="160"><span>05</span><p>How is daily sales performance associated with transaction volume?</p></li>
+                    <li data-reveal data-delay="200"><span>06</span><p>Which conclusions are supported—and which would overstate the evidence?</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="method-section case-section">
+            <div class="container">
+                <div class="case-heading case-heading-light" data-reveal><p class="case-index">03 / Method</p><h2>A reproducible path from data to interpretation.</h2><p>Each stage produces evidence used by the next.</p></div>
+                <ol class="method-flow" aria-label="Analysis workflow">
+                    <li data-reveal><span>01</span><strong>Validate</strong><p>Check fields, types, identifiers and missingness.</p></li>
+                    <li data-reveal data-delay="50"><span>02</span><strong>Prepare</strong><p>Parse dates and preserve the original data.</p></li>
+                    <li data-reveal data-delay="100"><span>03</span><strong>Summarise</strong><p>Build transaction, daily and customer views.</p></li>
+                    <li data-reveal data-delay="150"><span>04</span><strong>Visualise</strong><p>Inspect patterns, spread and influential values.</p></li>
+                    <li data-reveal data-delay="200"><span>05</span><strong>Interpret</strong><p>Separate observation from inference.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="quality-section case-section">
+            <div class="container quality-layout">
+                <div class="quality-score" data-reveal aria-label="98.6 percent of records have complete sales values"><span>Complete sales values</span><strong>98.6<sup>%</sup></strong><div><i style="width:98.6%"></i></div><small>277 of 281 records</small></div>
+                <div class="quality-copy" data-reveal data-delay="80"><p class="case-index">04 / Data quality</p><h2>Missing revenue was excluded—not invented.</h2><p>Four transactions have no sales amount. They are excluded from revenue calculations rather than filled with the mean, because imputation would manufacture sales that were never observed.</p><ul><li>0 duplicate rows</li><li>0 duplicate transaction IDs</li><li>0 missing customer IDs</li><li>4 missing sales values</li></ul><p class="quality-note"><strong>Decision:</strong> preserve the raw file, analyse complete sales records, and report the exclusion explicitly.</p></div>
+            </div>
+        </section>
+
+        <section class="explorer-section case-section" id="explore">
+            <div class="container">
+                <div class="explorer-heading" data-reveal>
+                    <div><p class="case-index">05 / Explore the month</p><h2>Daily activity, one day at a time.</h2></div>
+                    <div class="metric-switch" role="group" aria-label="Select chart metric"><button type="button" class="is-active" data-metric="sales" aria-pressed="true">Total sales</button><button type="button" data-metric="transactions" aria-pressed="false">Transactions</button></div>
+                </div>
+                <div class="data-explorer" data-reveal data-delay="80">
+                    <div class="explorer-summary" aria-live="polite">
+                        <p>Selected day</p><strong data-selected-date>22 September</strong><div><span data-selected-value>1,147.62 total sales</span><small data-selected-detail>15 transactions · 76.51 average</small></div>
+                    </div>
+                    <div class="explorer-plot-wrap"><div class="explorer-axis" aria-hidden="true"><span>High</span><span>Low</span></div><div class="explorer-chart" data-daily-chart role="list" aria-label="Daily sales for September 2020"></div></div>
+                    <p class="explorer-instruction">Select or focus a bar to inspect that day. Switch the measure to compare sales value with transaction volume.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="findings-section case-section" id="findings">
+            <div class="container">
+                <div class="case-heading" data-reveal><p class="case-index">06 / Findings</p><h2>What the observed month reveals.</h2><p>Each finding is paired with the qualification needed to interpret it responsibly.</p></div>
+
+                <article class="finding-row" data-reveal>
+                    <div class="finding-copy"><span class="finding-number">01</span><h3>A right-skewed transaction distribution.</h3><p>The mean transaction value is <strong>56.13</strong>, while the median is <strong>36.28</strong>. A smaller group of high-value purchases pulls the mean upward, so the median better represents a typical transaction.</p><div class="finding-stat"><span>IQR upper fence</span><strong>185.36</strong><small>6 high-value observations · 7.6% of sales</small></div><p class="finding-caution"><strong>Interpretation:</strong> the six observations were retained because no available field indicates that they are data-entry errors.</p></div>
+                    <figure class="finding-figure"><img src="assets/sales_distribution.svg" alt="Histogram and box plot showing a right-skewed distribution of transaction sales values"><figcaption>Distribution of the 277 complete transaction values.</figcaption></figure>
+                </article>
+
+                <article class="finding-row finding-row-reverse" data-reveal>
+                    <div class="finding-copy"><span class="finding-number">02</span><h3>Daily performance varies substantially.</h3><p>Recorded daily sales range from <strong>119.70</strong> on 9 September to <strong>1,147.62</strong> on 22 September. The average daily total is 518.25.</p><div class="finding-stat"><span>Highest day</span><strong>22 September</strong><small>1,147.62 across 15 transactions</small></div><p class="finding-caution"><strong>Interpretation:</strong> one month can describe variation, but it cannot establish seasonality or support dependable forecasting.</p></div>
+                    <figure class="finding-figure"><img src="assets/daily_sales.svg" alt="Line chart of total daily sales during September 2020"><figcaption>Daily totals across the 30-day observation window.</figcaption></figure>
+                </article>
+
+                <article class="finding-row" data-reveal>
+                    <div class="finding-copy"><span class="finding-number">03</span><h3>Customer contribution is distributed.</h3><p>Customer 48 generated the highest recorded sales: <strong>524.41</strong> across four transactions. The top ten customers account for <strong>26.3%</strong> of the month’s total.</p><div class="finding-stat"><span>Repeat within month</span><strong>74.4%</strong><small>of customers · 87.0% of recorded sales</small></div><p class="finding-caution"><strong>Interpretation:</strong> this is repeat activity inside September, not a long-term retention rate.</p></div>
+                    <figure class="finding-figure"><img src="assets/top_customers.svg" alt="Horizontal bar chart showing the ten customers with the highest total recorded sales"><figcaption>Top customers ranked by total recorded sales.</figcaption></figure>
+                </article>
+
+                <article class="finding-row finding-row-reverse" data-reveal>
+                    <div class="finding-copy"><span class="finding-number">04</span><h3>Sales rise with transaction volume—but cautiously.</h3><p>Daily transaction count and total daily sales have a Pearson correlation of <strong>r = 0.694</strong>, a moderately strong positive association.</p><div class="finding-stat"><span>Pearson correlation</span><strong>0.694</strong><small>daily total sales × daily transaction count</small></div><p class="finding-caution"><strong>Interpretation:</strong> daily sales is the sum of transaction values, so transaction count is mechanically part of the outcome. This is not causal evidence.</p></div>
+                    <figure class="finding-figure"><img src="assets/sales_vs_volume.svg" alt="Scatter plot showing the positive association between daily transaction count and total daily sales"><figcaption>Daily transaction volume compared with total sales.</figcaption></figure>
+                </article>
+            </div>
+        </section>
+
+        <section class="uncertainty-section case-section">
+            <div class="container uncertainty-layout">
+                <div data-reveal><p class="case-index">07 / Statistical perspective</p><h2>Point estimates need a measure of uncertainty.</h2><p>A 10,000-sample percentile bootstrap estimates plausible ranges without assuming that the strongly skewed transaction values are normally distributed.</p></div>
+                <div class="interval-cards" data-reveal data-delay="80"><article><span>Mean transaction</span><strong>56.13</strong><p>95% bootstrap interval</p><b>50.04 — 62.45</b></article><article><span>Median transaction</span><strong>36.28</strong><p>95% bootstrap interval</p><b>26.09 — 45.53</b></article></div>
+            </div>
+        </section>
+
+        <section class="data-section case-section">
+            <div class="container data-layout">
+                <div class="data-copy" data-reveal><p class="case-index">08 / Data</p><h2>Four fields—and clear analytical boundaries.</h2><p>The compact structure is enough for transaction, daily and customer-level exploration. It is not enough for product, profitability or geographic analysis.</p></div>
+                <div class="data-table-wrap" data-reveal data-delay="80"><table><caption class="sr-only">Retail sales dataset fields</caption><thead><tr><th>Field</th><th>Type</th><th>Meaning</th></tr></thead><tbody><tr><td><code>customer_id</code></td><td>Integer</td><td>Anonymised customer identifier</td></tr><tr><td><code>transaction_date</code></td><td>Date</td><td>Date of the transaction</td></tr><tr><td><code>transaction_id</code></td><td>Integer</td><td>Unique transaction identifier</td></tr><tr><td><code>sales</code></td><td>Numeric</td><td>Sales amount; currency not specified</td></tr></tbody></table></div>
+            </div>
+        </section>
+
+        <section class="limitations-section case-section">
+            <div class="container">
+                <div class="case-heading" data-reveal><p class="case-index">09 / Boundaries</p><h2>What this project does not claim.</h2></div>
+                <div class="limitations-grid"><article data-reveal><span>Time</span><p>One month cannot establish seasonality, trends or forecast reliability.</p></article><article data-reveal data-delay="40"><span>Business detail</span><p>No product, category, channel, location, cost or profit fields are available.</p></article><article data-reveal data-delay="80"><span>Customer history</span><p>Activity inside September cannot establish acquisition, churn or long-term retention.</p></article><article data-reveal data-delay="120"><span>Provenance</span><p>The original source, sampling method and currency were not documented in the earlier dataset.</p></article></div>
+                <div class="next-data" data-reveal><span>Recommended next dataset</span><p>At least 12 months of transactions with product, category, store or channel, quantity, price, discount, cost and customer-acquisition fields—enabling seasonality, profitability, cohorts, segmentation and forecasting.</p></div>
+            </div>
+        </section>
+
+        <section class="technical-section case-section">
+            <div class="container technical-layout">
+                <div data-reveal><p class="case-index">10 / Reproduce the work</p><h2>The complete analysis remains open and inspectable.</h2><p>The repository contains the dataset, guided notebook, reusable Python analysis, generated figures, summary tables and machine-readable results.</p><div class="technical-actions"><a class="button button-primary" href="https://github.com/DrHiraBenish/sales-data-analysis" target="_blank" rel="noopener noreferrer">View code on GitHub <span>↗</span></a><a class="case-text-link" href="https://colab.research.google.com/github/DrHiraBenish/sales-data-analysis/blob/main/notebooks/01_sales_eda.ipynb" target="_blank" rel="noopener noreferrer">Open notebook in Colab <span>↗</span></a></div></div>
+                <div class="code-window" data-reveal data-delay="80" aria-label="Example command for reproducing the analysis"><div><i></i><i></i><i></i><span>terminal</span></div><pre><code><span>$</span> git clone https://github.com/
+  DrHiraBenish/sales-data-analysis.git
+
+<span>$</span> pip install -r requirements.txt
+<span>$</span> python src/analyze_sales.py
+
+<b>✓</b> Reports regenerated successfully.</code></pre></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-layout"><div><a class="footer-brand" href="../../index.html">Dr. Hira Benish</a><p>Mathematics · Research · Data · Intelligence</p></div><nav aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../research.html">Research</a><a href="../../teaching.html">Teaching</a><a href="../../projects.html">Projects</a><a href="../../blogs.html">Blogs</a><a href="../../contact.html">Connect</a></nav><div class="footer-meta"><p>Associate Professor of Mathematics &amp; Head of Department</p><p>© <span data-current-year>2026</span> Dr. Hira Benish</p></div></div></footer>
+    <script src="../../js/script.js?v=9"></script>
+    <script src="project.js?v=1"></script>
+</body>
+</html>

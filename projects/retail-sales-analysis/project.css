@@ -1246,3 +1246,320 @@
         transition: none;
     }
 }
+
+
+/* =========================================================
+   FINAL COMPACT + INTERACTION PASS — 2026-09-03
+========================================================= */
+
+.case-hero-card,
+.question-grid li,
+.method-flow li,
+.quality-score,
+.data-explorer,
+.finding-figure,
+.interval-cards article,
+.limitations-grid article,
+.next-data,
+.data-table-wrap,
+.code-window {
+    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease, background 240ms ease;
+}
+
+@media (min-width: 901px) {
+    .case-section {
+        padding: 52px 0;
+    }
+
+    .case-hero {
+        padding: 42px 0 48px;
+    }
+
+    .case-hero-layout {
+        min-height: 400px;
+        gap: 42px;
+    }
+
+    .case-hero h1 {
+        font-size: clamp(3rem, 4.45vw, 4.45rem);
+    }
+
+    .case-hero-card {
+        min-height: 335px;
+        padding: 23px;
+        box-shadow: 18px 20px 0 rgba(141, 64, 88, 0.07), 0 24px 58px rgba(57, 31, 44, 0.16);
+    }
+
+    .hero-card-total {
+        padding: 17px 0 15px;
+    }
+
+    .hero-card-total strong {
+        font-size: clamp(2.35rem, 3.4vw, 3.15rem);
+    }
+
+    .hero-card-metrics > div {
+        padding: 10px 10px;
+    }
+
+    .hero-sparkline {
+        height: 42px;
+    }
+
+    .case-heading {
+        margin-bottom: 28px;
+    }
+
+    .case-heading h2,
+    .explorer-heading h2,
+    .quality-copy h2,
+    .uncertainty-layout h2,
+    .data-copy h2,
+    .technical-layout h2 {
+        font-size: clamp(2.05rem, 3vw, 3rem);
+    }
+
+    .question-grid li {
+        min-height: 132px;
+        padding: 18px;
+    }
+
+    .question-grid p {
+        margin-top: 16px;
+        font-size: 1rem;
+    }
+
+    .method-flow li {
+        min-height: 145px;
+        padding: 19px 16px 0;
+    }
+
+    .method-flow strong {
+        margin: 24px 0 7px;
+        font-size: 1.15rem;
+    }
+
+    .quality-layout {
+        grid-template-columns: minmax(310px, 0.62fr) minmax(0, 1.08fr);
+        gap: 48px;
+    }
+
+    .quality-score {
+        padding: 27px;
+        box-shadow: 14px 16px 0 rgba(141, 64, 88, 0.05);
+    }
+
+    .quality-score > strong {
+        margin: 10px 0 16px;
+        font-size: clamp(3.35rem, 5.4vw, 5rem);
+    }
+
+    .explorer-heading {
+        margin-bottom: 24px;
+    }
+
+    .data-explorer {
+        padding: 21px 25px 18px;
+    }
+
+    .explorer-summary {
+        padding-bottom: 15px;
+    }
+
+    .explorer-plot-wrap {
+        height: 220px;
+    }
+
+    .finding-row {
+        padding: 36px 0;
+        gap: 40px;
+    }
+
+    .finding-copy h3 {
+        font-size: clamp(1.75rem, 2.45vw, 2.45rem);
+    }
+
+    .finding-stat {
+        margin: 16px 0 14px;
+        padding: 12px 0;
+    }
+
+    .finding-figure {
+        padding: 10px;
+        box-shadow: 11px 12px 0 rgba(141, 64, 88, 0.05);
+    }
+
+    .interval-cards article {
+        padding: 19px 17px;
+    }
+
+    .interval-cards strong {
+        margin: 9px 0 15px;
+        font-size: 2rem;
+    }
+
+    .data-layout {
+        grid-template-columns: minmax(0, 0.62fr) minmax(520px, 1.08fr);
+        gap: 44px;
+    }
+
+    .data-table-wrap th,
+    .data-table-wrap td {
+        padding: 11px 14px;
+    }
+
+    .limitations-grid article {
+        min-height: 132px;
+        padding: 18px;
+    }
+
+    .limitations-grid p {
+        margin-top: 15px;
+    }
+
+    .next-data {
+        margin-top: 16px;
+        padding: 17px 18px;
+    }
+
+    .technical-layout {
+        gap: 44px;
+    }
+
+    .code-window pre {
+        padding: 20px;
+        line-height: 1.65;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .case-hero-card:hover,
+    .quality-score:hover,
+    .data-explorer:hover,
+    .next-data:hover,
+    .data-table-wrap:hover,
+    .code-window:hover {
+        border-color: rgba(141, 64, 88, 0.28);
+        box-shadow: 0 18px 38px rgba(57, 31, 44, 0.12);
+        transform: translateY(-4px);
+    }
+
+    .question-grid li:hover,
+    .method-flow li:hover,
+    .interval-cards article:hover,
+    .limitations-grid article:hover {
+        z-index: 1;
+        transform: translateY(-4px);
+    }
+
+    .question-grid li:hover,
+    .limitations-grid article:hover {
+        background: #fff;
+        box-shadow: 0 14px 28px rgba(57, 31, 44, 0.08);
+    }
+
+    .method-flow li:hover,
+    .interval-cards article:hover {
+        background: rgba(255, 255, 255, 0.045);
+    }
+
+    .finding-row:hover .finding-figure {
+        border-color: rgba(141, 64, 88, 0.24);
+        box-shadow: 0 16px 30px rgba(57, 31, 44, 0.09);
+        transform: translateY(-4px) scale(1.008);
+    }
+}
+
+@media (max-width: 680px) {
+    .case-section {
+        padding: 42px 0;
+    }
+
+    .case-hero {
+        padding: 34px 0 42px;
+    }
+
+    .case-hero-card {
+        padding: 20px 18px;
+    }
+
+    .question-grid li {
+        padding: 18px;
+    }
+
+    .method-flow li {
+        min-height: 130px;
+        padding: 18px 17px 0;
+    }
+
+    .method-flow strong {
+        margin-top: 23px;
+    }
+
+    .quality-score {
+        padding: 22px 20px;
+    }
+
+    .data-explorer {
+        padding: 20px 16px 17px;
+    }
+
+    .explorer-plot-wrap {
+        height: 220px;
+    }
+
+    .finding-row {
+        padding: 32px 0;
+    }
+
+    .interval-cards article,
+    .limitations-grid article {
+        min-height: 0;
+        padding: 18px;
+    }
+
+    .interval-cards strong {
+        margin: 9px 0 14px;
+        font-size: 2rem;
+    }
+
+    .limitations-grid p {
+        margin-top: 14px;
+    }
+
+    .next-data {
+        grid-template-columns: 1fr;
+        padding: 17px;
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .case-hero-card,
+    .question-grid li,
+    .method-flow li,
+    .quality-score,
+    .data-explorer,
+    .finding-figure,
+    .interval-cards article,
+    .limitations-grid article,
+    .next-data,
+    .data-table-wrap,
+    .code-window {
+        transition: none;
+    }
+
+    .case-hero-card:hover,
+    .question-grid li:hover,
+    .method-flow li:hover,
+    .quality-score:hover,
+    .data-explorer:hover,
+    .finding-row:hover .finding-figure,
+    .interval-cards article:hover,
+    .limitations-grid article:hover,
+    .next-data:hover,
+    .data-table-wrap:hover,
+    .code-window:hover {
+        transform: none;
+    }
+}

@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css?v=17">
+    <link rel="stylesheet" href="css/home-overview.css?v=1">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -70,31 +71,63 @@
             </div>
         </section>
 
-        <section class="home-focus section-pad" id="featured">
-            <div class="container">
-                <div class="editorial-heading" data-reveal><p><span>02</span> Current focus</p><h2>One research question, viewed from several mathematical angles.</h2></div>
-                <div class="focus-editorial-grid">
-                    <article class="focus-feature" data-reveal data-tilt><div class="focus-meta"><span>Research in development</span><b>Graph learning</b></div><p class="focus-equation" aria-hidden="true">r(v | W)</p><h3>Metric Dimension for Graph Learning</h3><p>I am investigating metric-coordinate features from resolving sets as a mathematically interpretable way to improve node representation and structural awareness in neural networks and GNNs.</p><a class="card-link" href="research.html">Follow the research direction <span>↗</span></a></article>
-                    <div class="focus-notes" data-reveal data-delay="100"><article><span>Foundation</span><h3>Graph Theory</h3><p>Distance, resolving sets and distinguishing parameters.</p></article><article><span>Bridge</span><h3>Representation</h3><p>Turning network position into informative coordinates.</p></article><article><span>Direction</span><h3>Mathematical AI</h3><p>Adding structural reasoning to modern learning systems.</p></article></div>
+        <section class="home-overview section-pad" id="featured">
+            <div class="container overview-panel">
+                <header class="overview-heading" data-reveal>
+                    <div><p class="overview-index">02 / Current academic direction</p><h2>Research Interests</h2></div>
+                    <p>Mathematical foundations extended through networks, computation and modern intelligent systems.</p>
+                </header>
+
+                <ul class="interest-grid" aria-label="Research interests">
+                    <li data-reveal>
+                        <svg class="interest-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 13 24 8l14 9-4 18-19 4-7-13Z"/><path d="m10 13 14 12 14-8M24 8v17m-16-9 16 9 10 9M15 39l9-14"/><circle class="interest-node" cx="10" cy="13" r="2.5"/><circle class="interest-node" cx="24" cy="8" r="2.5"/><circle class="interest-node" cx="38" cy="17" r="2.5"/><circle class="interest-node" cx="34" cy="35" r="2.5"/><circle class="interest-node" cx="15" cy="39" r="2.5"/><circle class="interest-node" cx="8" cy="26" r="2.5"/><circle class="interest-node" cx="24" cy="25" r="2.5"/></svg>
+                        <strong>Graph Theory</strong>
+                    </li>
+                    <li data-reveal data-delay="40">
+                        <svg class="interest-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="5"/><circle class="interest-node" cx="9" cy="13" r="3"/><circle class="interest-node" cx="39" cy="11" r="3"/><circle class="interest-node" cx="41" cy="34" r="3"/><circle class="interest-node" cx="10" cy="37" r="3"/><path d="m13 15 7 6m8-1 8-7m-7 14 9 5m-18-4-8 7M9 13l1 24m29-26 2 23"/></svg>
+                        <strong>Network Analysis</strong>
+                    </li>
+                    <li data-reveal data-delay="80">
+                        <svg class="interest-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12h8m-8 12h8M8 36h8m16-20h8m-8 16h8M16 12l16 4M16 24l16-8m-16 8 16 16m-16-4 16-4"/><circle class="interest-node" cx="8" cy="12" r="2.5"/><circle class="interest-node" cx="8" cy="24" r="2.5"/><circle class="interest-node" cx="8" cy="36" r="2.5"/><circle class="interest-node" cx="24" cy="24" r="3.5"/><circle class="interest-node" cx="40" cy="16" r="2.5"/><circle class="interest-node" cx="40" cy="32" r="2.5"/></svg>
+                        <strong>GNNs</strong>
+                    </li>
+                    <li data-reveal data-delay="120">
+                        <svg class="interest-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 39h33M11 35V24h6v11m5 0V14h6v21m5 0V8h6v27"/><path d="m10 18 9-6 8 3L39 6"/><circle class="interest-node" cx="10" cy="18" r="2"/><circle class="interest-node" cx="19" cy="12" r="2"/><circle class="interest-node" cx="27" cy="15" r="2"/><circle class="interest-node" cx="39" cy="6" r="2"/></svg>
+                        <strong>Data Science</strong>
+                    </li>
+                    <li data-reveal data-delay="160">
+                        <svg class="interest-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="10" width="30" height="27" rx="3"/><path d="M15 30c4-9 8-4 12-10 3-4 5-5 7-5M15 16h4m-4 6h4"/><circle class="interest-node" cx="15" cy="30" r="2"/><circle class="interest-node" cx="27" cy="20" r="2"/><circle class="interest-node" cx="34" cy="15" r="2"/><path d="M19 42h10M24 37v5"/></svg>
+                        <strong>Machine Learning</strong>
+                    </li>
+                    <li data-reveal data-delay="200">
+                        <svg class="interest-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 9c-5 2-8 7-8 13 0 4 2 7 5 9v5h7m10-27c5 2 8 7 8 13 0 4-2 7-5 9v5h-7M16 19h16M18 27h12M21 36v5h6v-5"/><circle class="interest-node" cx="16" cy="19" r="2"/><circle class="interest-node" cx="32" cy="19" r="2"/><circle class="interest-node" cx="18" cy="27" r="2"/><circle class="interest-node" cx="30" cy="27" r="2"/><path d="m16 19 2 8 6-12 6 12 2-8"/></svg>
+                        <strong>Mathematical AI</strong>
+                    </li>
+                </ul>
+
+                <div class="recent-work-heading" data-reveal>
+                    <div><p class="overview-index">Evidence &amp; emerging directions</p><h2>Recent Work &amp; Ideas</h2></div>
+                    <a href="projects.html">View all projects <span>→</span></a>
                 </div>
-            </div>
-        </section>
 
-        <section class="home-practice section-pad">
-            <div class="container practice-grid">
-                <div class="teaching-ledger" data-reveal><div class="ledger-heading"><span>03</span><p>Teaching</p></div><h2>Concept first.<br>Computation with purpose.</h2><p>My courses balance mathematical understanding with Python, visualization, experimentation and real-world application.</p><ol><li><span>01</span>Linear Algebra for Machine Learning</li><li><span>02</span>Python for Mathematics</li><li><span>03</span>Discrete Structures</li><li><span>04</span>Calculus &amp; Analytical Geometry</li></ol><a class="text-link" href="teaching.html">Explore teaching <span>→</span></a></div>
-                <div class="leadership-profile" id="program-leadership" data-reveal data-delay="100"><div class="ledger-heading"><span>04</span><p>Academic leadership</p></div><blockquote>Building academic structures that make mathematics relevant, accessible and future-facing.</blockquote><div class="leadership-record"><article><span>Current roles</span><h3>Associate Professor &amp; Head of Department</h3><p>Riphah International University, Sahiwal Campus</p></article><article><span>Institutional responsibility</span><h3>Tarbiyah Head &amp; Exam Superintendent</h3><p>Values-led development, examination quality and academic responsibility.</p></article><article><span>Public initiative</span><h3>Co-Founder &amp; Director, PMAI Lab</h3><p>Learning, research and collaboration across Mathematics, Python and AI.</p></article></div><a class="text-link" href="about.html">View complete experience <span>→</span></a></div>
-            </div>
-        </section>
+                <div class="recent-work-grid">
+                    <a class="recent-work-card" href="https://pmai.online" target="_blank" rel="noopener noreferrer" data-reveal>
+                        <span class="work-type">Public initiative</span><h3>PMAI Lab</h3><p>Connecting Mathematics, Python and Artificial Intelligence through learning, research and collaboration.</p><small>Co-Founder &amp; Director</small><i aria-hidden="true">↗</i>
+                    </a>
+                    <a class="recent-work-card" href="https://pmai.online/blogs/what-does-gpt-actually-learn/" target="_blank" rel="noopener noreferrer" data-reveal data-delay="60">
+                        <span class="work-type">Interactive explainer</span><h3>What Does GPT Actually Learn?</h3><p>Exploring the mathematical foundations behind language-model learning through accessible experiments.</p><small>Mathematics Behind AI</small><i aria-hidden="true">↗</i>
+                    </a>
+                    <a class="recent-work-card" href="projects/retail-sales-analysis/" data-reveal data-delay="120">
+                        <span class="work-type">Completed case study</span><h3>Retail Sales Exploratory Analysis</h3><p>A reproducible data-science project with interactive exploration and statistical interpretation.</p><small>Python · EDA · Statistics</small><i aria-hidden="true">→</i>
+                    </a>
+                    <a class="recent-work-card" href="research.html" data-reveal data-delay="180">
+                        <span class="work-type">Research in development</span><h3>Metric-Dimension-Augmented Graph Learning</h3><p>Using metric coordinates as interpretable structural features for graph neural networks.</p><small>Graph Theory · GNNs</small><i aria-hidden="true">→</i>
+                    </a>
+                </div>
 
-        <section class="home-development section-pad">
-            <div class="container">
-                <div class="editorial-heading" data-reveal><p><span>05</span> Development in practice</p><h2>Building pathways from mathematics to data and AI.</h2></div>
-                <div class="development-grid development-weave">
-                    <article data-reveal><span>Academic programme</span><h3>BS Mathematics with Data Analytics</h3><p>A contemporary degree pathway combining mathematical foundations with Python, analytics, projects and industry exposure.</p></article>
-                    <article data-reveal data-delay="60"><span>Curriculum bridge</span><h3>Mathematics for Modern Technologies</h3><p>Teaching and learning design that connects Linear Algebra, Graph Theory and computation with Data Science, Machine Learning and AI.</p></article>
-                    <article data-reveal data-delay="120"><span>Faculty development</span><h3>Python &amp; Applied Learning</h3><p>Practical workshops and learning initiatives that help educators and students build computational confidence.</p></article>
-                    <article data-reveal data-delay="180"><span>Current work</span><h3>Mathematics Behind AI</h3><p>Interactive explanations and experiments connecting mathematical ideas with parameters, learning, probability, optimization and intelligent systems.</p><a class="text-link" href="blogs.html">Explore the blog <span>↗</span></a></article>
+                <div class="professional-impact" aria-label="Professional impact" data-reveal>
+                    <p>Professional impact</p>
+                    <ul><li><span>01</span>Case-study integration</li><li><span>02</span>Faculty development</li><li id="program-leadership"><span>03</span>Academic leadership</li><li><span>04</span>Mathematics with purpose</li></ul>
                 </div>
             </div>
         </section>

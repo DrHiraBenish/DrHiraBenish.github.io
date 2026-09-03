@@ -7508,3 +7508,359 @@ body[data-page="about"] .page-cta-shell h2 {
         transform: none;
     }
 }
+
+
+/* =========================================================
+   RESEARCH PAGE — COMPACT SECTION PASS — 2026-09-03
+========================================================= */
+
+body[data-page="research"] .research-editorial-hero {
+    padding: 48px 0 54px;
+}
+
+body[data-page="research"] .research-hero-layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(330px, 0.56fr);
+    min-height: 430px;
+    gap: 54px;
+}
+
+body[data-page="research"] .research-hero-copy .eyebrow {
+    margin-bottom: 18px;
+}
+
+body[data-page="research"] .research-hero-copy h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 4.5vw, 4.65rem);
+    line-height: 0.98;
+}
+
+body[data-page="research"] .research-hero-copy > p {
+    max-width: 720px;
+    font-size: 0.94rem;
+    line-height: 1.62;
+}
+
+body[data-page="research"] .research-hero-links {
+    margin-top: 22px;
+    gap: 22px;
+}
+
+body[data-page="research"] .research-visual-stage .hero-visual {
+    width: min(100%, 385px);
+}
+
+body[data-page="research"] .research-visual-stage .coordinate-card {
+    transform: scale(0.9);
+    transform-origin: right bottom;
+}
+
+body[data-page="research"] main > .section-pad {
+    padding: 52px 0;
+}
+
+body[data-page="research"] .split-heading {
+    margin-bottom: 30px;
+    gap: 44px;
+}
+
+body[data-page="research"] .split-heading h2,
+body[data-page="research"] .method-copy h2,
+body[data-page="research"] .publication-list-layout h2,
+body[data-page="research"] .page-cta-shell h2 {
+    font-size: clamp(2.05rem, 3.05vw, 3.1rem);
+    line-height: 1.06;
+}
+
+body[data-page="research"] .split-heading > p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+body[data-page="research"] .arc-grid {
+    gap: 14px;
+}
+
+body[data-page="research"] .arc-grid article {
+    min-height: 205px;
+    padding: 21px;
+}
+
+body[data-page="research"] .arc-grid h3 {
+    margin: 25px 0 10px;
+    font-size: 1.2rem;
+    line-height: 1.18;
+}
+
+body[data-page="research"] .arc-grid p {
+    font-size: 0.8rem;
+    line-height: 1.52;
+}
+
+body[data-page="research"] .arc-grid .tag-row {
+    margin-top: 15px;
+    gap: 6px;
+}
+
+body[data-page="research"] .arc-grid .tag-row span {
+    padding: 6px 8px;
+    font-size: 0.66rem;
+}
+
+body[data-page="research"] .method-layout {
+    grid-template-columns: minmax(270px, 0.52fr) minmax(0, 1.48fr);
+    align-items: center;
+    gap: 44px;
+}
+
+body[data-page="research"] .method-copy > p:not(.section-kicker) {
+    font-size: 0.88rem;
+    line-height: 1.58;
+}
+
+body[data-page="research"] .method-flow {
+    justify-content: stretch;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+body[data-page="research"] .method-flow article {
+    width: auto;
+    min-width: 0;
+    min-height: 132px;
+    padding: 15px;
+    flex: 1 1 0;
+    border-radius: 14px;
+    transition: transform 220ms ease, background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+body[data-page="research"] .method-flow strong {
+    margin: auto 0 5px;
+    font-size: 1.02rem;
+    line-height: 1.1;
+}
+
+body[data-page="research"] .method-flow small {
+    font-size: 0.64rem;
+    line-height: 1.42;
+}
+
+body[data-page="research"] .method-flow > i {
+    flex: 0 0 18px;
+    text-align: center;
+}
+
+body[data-page="research"] .question-grid {
+    gap: 12px;
+}
+
+body[data-page="research"] .question-grid article {
+    min-height: 175px;
+    padding: 19px;
+}
+
+body[data-page="research"] .question-grid h3 {
+    margin: 24px 0 9px;
+    font-size: 1.15rem;
+}
+
+body[data-page="research"] .question-grid p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+body[data-page="research"] .publication-list-layout {
+    grid-template-columns: minmax(220px, 0.4fr) minmax(0, 1fr);
+    gap: 52px;
+}
+
+body[data-page="research"] .publication-count {
+    margin-top: 24px;
+}
+
+body[data-page="research"] .publication-count strong {
+    font-size: 2.8rem;
+}
+
+body[data-page="research"] .publication-list {
+    gap: 10px;
+}
+
+body[data-page="research"] .publication-list article {
+    padding: 19px 20px;
+    gap: 22px;
+    border-radius: 12px;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+body[data-page="research"] .publication-list h3 {
+    margin: 5px 0;
+    font-size: 1.04rem;
+    line-height: 1.25;
+}
+
+body[data-page="research"] .publication-list p {
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+body[data-page="research"] .page-cta-shell {
+    padding: 30px 34px;
+    gap: 34px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body[data-page="research"] .method-flow article:hover {
+        background: rgba(255, 255, 255, 0.11);
+        border-color: rgba(227, 180, 142, 0.28);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+        transform: translateY(-4px);
+    }
+
+    body[data-page="research"] .publication-list article:hover {
+        border-color: rgba(141, 64, 88, 0.22);
+        box-shadow: 0 14px 28px rgba(72, 43, 55, 0.08);
+        transform: translateY(-3px);
+    }
+}
+
+@media (max-width: 1020px) {
+    body[data-page="research"] .research-hero-layout {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 34px;
+    }
+
+    body[data-page="research"] .research-visual-stage .hero-visual {
+        width: min(100%, 350px);
+    }
+
+    body[data-page="research"] .method-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    body[data-page="research"] .method-flow {
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    body[data-page="research"] .publication-list-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 760px) {
+    body[data-page="research"] .research-editorial-hero {
+        padding: 38px 0 42px;
+    }
+
+    body[data-page="research"] .research-hero-copy h1 {
+        font-size: clamp(2.65rem, 11vw, 3.55rem);
+    }
+
+    body[data-page="research"] main > .section-pad {
+        padding: 40px 0;
+    }
+
+    body[data-page="research"] .split-heading {
+        grid-template-columns: 1fr;
+        margin-bottom: 24px;
+        gap: 15px;
+    }
+
+    body[data-page="research"] .split-heading h2,
+    body[data-page="research"] .method-copy h2,
+    body[data-page="research"] .publication-list-layout h2,
+    body[data-page="research"] .page-cta-shell h2 {
+        font-size: clamp(1.95rem, 8.4vw, 2.6rem);
+    }
+
+    body[data-page="research"] .arc-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="research"] .arc-grid article,
+    body[data-page="research"] .arc-grid article:last-child {
+        grid-column: auto;
+        min-height: 0;
+        padding: 18px;
+    }
+
+    body[data-page="research"] .method-flow {
+        gap: 6px;
+    }
+
+    body[data-page="research"] .method-flow article {
+        min-height: 118px;
+        padding: 12px 10px;
+    }
+
+    body[data-page="research"] .method-flow strong {
+        font-size: 0.9rem;
+    }
+
+    body[data-page="research"] .method-flow small {
+        font-size: 0.58rem;
+    }
+
+    body[data-page="research"] .method-flow > i {
+        flex-basis: 12px;
+        font-size: 0.82rem;
+    }
+
+    body[data-page="research"] .question-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    body[data-page="research"] .question-grid article {
+        min-height: 150px;
+    }
+
+    body[data-page="research"] .publication-list article {
+        grid-template-columns: 1fr;
+        padding: 17px;
+        gap: 10px;
+    }
+
+    body[data-page="research"] .publication-list b {
+        text-align: left;
+    }
+
+    body[data-page="research"] .page-cta-shell {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    body[data-page="research"] .method-flow {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    body[data-page="research"] .method-flow article {
+        width: 100%;
+        min-height: 100px;
+    }
+
+    body[data-page="research"] .method-flow > i {
+        align-self: center;
+        transform: rotate(90deg);
+    }
+
+    body[data-page="research"] .question-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body[data-page="research"] .method-flow article,
+    body[data-page="research"] .publication-list article {
+        transition: none;
+    }
+
+    body[data-page="research"] .method-flow article:hover,
+    body[data-page="research"] .publication-list article:hover {
+        transform: none;
+    }
+}

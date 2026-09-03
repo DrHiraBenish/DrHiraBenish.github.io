@@ -7864,3 +7864,808 @@ body[data-page="research"] .page-cta-shell {
         transform: none;
     }
 }
+
+
+/* =========================================================
+   REMAINING PAGES — COMPACT CONSISTENCY PASS — 2026-09-03
+   Teaching · Projects · Speaking · Blogs · Contact
+========================================================= */
+
+/* ------------------------- Teaching ------------------------- */
+
+body[data-page="teaching"] .teaching-editorial-hero {
+    padding: 48px 0 54px;
+}
+
+body[data-page="teaching"] .teaching-editorial-hero .editorial-hero-grid {
+    min-height: 420px;
+    gap: 52px;
+}
+
+body[data-page="teaching"] .teaching-editorial-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 4.5vw, 4.6rem);
+}
+
+body[data-page="teaching"] .teaching-editorial-hero .editorial-hero-grid > div:first-child > p:last-child {
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+body[data-page="teaching"] .teaching-manuscript {
+    min-height: 365px;
+    padding: 30px 32px 28px 54px;
+    box-shadow: 16px 18px 0 rgba(141, 64, 88, 0.06), var(--shadow-sm);
+}
+
+body[data-page="teaching"] .manuscript-binding {
+    left: 30px;
+}
+
+body[data-page="teaching"] .manuscript-equation {
+    margin: 42px 0 10px;
+    font-size: clamp(2.8rem, 4.7vw, 4.25rem);
+}
+
+body[data-page="teaching"] .manuscript-note {
+    margin: 18px 0 25px;
+}
+
+body[data-page="teaching"] main > .section-pad {
+    padding: 52px 0;
+}
+
+body[data-page="teaching"] .profile-intro-grid {
+    gap: 52px;
+}
+
+body[data-page="teaching"] .section-heading h2,
+body[data-page="teaching"] .split-heading h2,
+body[data-page="teaching"] .learning-path-layout h2,
+body[data-page="teaching"] .page-cta-shell h2 {
+    font-size: clamp(2.05rem, 3.05vw, 3.1rem);
+    line-height: 1.06;
+}
+
+body[data-page="teaching"] .split-heading {
+    margin-bottom: 30px;
+    gap: 44px;
+}
+
+body[data-page="teaching"] .long-copy p,
+body[data-page="teaching"] .split-heading > p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+body[data-page="teaching"] .long-copy .lead-copy {
+    font-size: 1.03rem;
+}
+
+body[data-page="teaching"] .course-card-grid {
+    gap: 12px;
+}
+
+body[data-page="teaching"] .course-card-grid article {
+    display: flex;
+    min-height: 275px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+body[data-page="teaching"] .course-card-grid h3 {
+    margin: 25px 0 10px;
+    font-size: 1.18rem;
+    line-height: 1.18;
+}
+
+body[data-page="teaching"] .course-card-grid p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+body[data-page="teaching"] .course-card-grid .tag-row {
+    margin: 15px 0 12px;
+    gap: 6px;
+}
+
+body[data-page="teaching"] .course-card-grid .tag-row span {
+    padding: 6px 8px;
+    font-size: 0.64rem;
+}
+
+body[data-page="teaching"] .course-source-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 12px;
+    color: var(--blue);
+    border-top: 1px solid var(--line);
+    gap: 7px;
+    font-size: 0.72rem;
+    font-weight: 750;
+}
+
+body[data-page="teaching"] .course-source-link span {
+    color: var(--teal);
+    transition: transform 180ms ease;
+}
+
+body[data-page="teaching"] .course-source-link:hover span {
+    transform: translate(3px, -2px);
+}
+
+body[data-page="teaching"] .course-catalog-link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    margin-top: 18px;
+    padding: 20px 22px;
+    gap: 28px;
+    background: #f3ece7;
+    border: 1px solid var(--line);
+}
+
+body[data-page="teaching"] .course-catalog-link > div > span {
+    color: var(--blue);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+body[data-page="teaching"] .course-catalog-link strong {
+    display: block;
+    margin: 5px 0;
+    font-size: 1.08rem;
+}
+
+body[data-page="teaching"] .course-catalog-link p {
+    max-width: 760px;
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+body[data-page="teaching"] .course-catalog-link > a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--blue);
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+body[data-page="teaching"] .learning-path-layout {
+    gap: 52px;
+}
+
+body[data-page="teaching"] .learning-steps {
+    gap: 10px;
+}
+
+body[data-page="teaching"] .learning-steps article {
+    padding: 17px 18px;
+    border-radius: 12px;
+}
+
+body[data-page="teaching"] .learning-steps strong {
+    margin: 19px 0 5px;
+}
+
+body[data-page="teaching"] .resource-grid {
+    gap: 12px;
+}
+
+body[data-page="teaching"] .resource-grid article {
+    min-height: 165px;
+    padding: 18px;
+}
+
+body[data-page="teaching"] .resource-grid strong {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+body[data-page="teaching"] .resource-grid h3 {
+    font-size: 1rem;
+}
+
+body[data-page="teaching"] .resource-grid p {
+    font-size: 0.75rem;
+}
+
+body[data-page="teaching"] .page-cta-shell {
+    padding: 30px 34px;
+    gap: 34px;
+}
+
+/* ------------------------- Projects ------------------------- */
+
+body[data-page="projects"] .page-hero {
+    padding: 50px 0 54px;
+}
+
+body[data-page="projects"] .page-hero-layout {
+    min-height: 400px;
+    gap: 52px;
+}
+
+body[data-page="projects"] .page-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 4.45vw, 4.55rem);
+}
+
+body[data-page="projects"] .page-hero-layout > div:first-child > p:last-child {
+    font-size: 0.94rem;
+    line-height: 1.58;
+}
+
+body[data-page="projects"] .project-hero-visual {
+    width: min(100%, 330px);
+    min-height: 235px;
+    padding: 34px 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+body[data-page="projects"] main > .section-pad {
+    padding: 52px 0;
+}
+
+body[data-page="projects"] .split-heading {
+    margin-bottom: 30px;
+    gap: 44px;
+}
+
+body[data-page="projects"] .split-heading h2,
+body[data-page="projects"] .page-cta-shell h2 {
+    font-size: clamp(2.05rem, 3.05vw, 3.1rem);
+    line-height: 1.06;
+}
+
+body[data-page="projects"] .split-heading > p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+body[data-page="projects"] .filter-bar {
+    margin-bottom: 22px;
+}
+
+body[data-page="projects"] .project-grid {
+    gap: 12px;
+}
+
+body[data-page="projects"] .project-card {
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+body[data-page="projects"] .project-visual {
+    min-height: 185px;
+}
+
+body[data-page="projects"] .project-card-wide .project-visual {
+    min-height: 280px;
+}
+
+body[data-page="projects"] .project-content {
+    padding: 21px;
+}
+
+body[data-page="projects"] .project-card-wide .project-content {
+    padding: 28px;
+}
+
+body[data-page="projects"] .project-content h3 {
+    margin: 17px 0 9px;
+    font-size: 1.28rem;
+}
+
+body[data-page="projects"] .project-card-wide h3 {
+    font-size: 1.65rem;
+}
+
+body[data-page="projects"] .project-content > p {
+    font-size: 0.78rem;
+    line-height: 1.52;
+}
+
+body[data-page="projects"] .project-content .tag-row {
+    margin: 15px 0;
+}
+
+body[data-page="projects"] .principle-strip {
+    gap: 9px;
+}
+
+body[data-page="projects"] .principle-strip article {
+    padding: 17px 18px;
+    border-radius: 12px;
+}
+
+body[data-page="projects"] .principle-strip strong {
+    margin: 21px 0 6px;
+}
+
+body[data-page="projects"] .page-cta-shell {
+    padding: 30px 34px;
+    gap: 34px;
+}
+
+/* ------------------------- Speaking ------------------------- */
+
+body[data-page="speaking"] .speaking-editorial-hero {
+    padding: 50px 0 54px;
+}
+
+body[data-page="speaking"] .speaking-editorial-hero .editorial-hero-grid {
+    min-height: 400px;
+    gap: 52px;
+}
+
+body[data-page="speaking"] .speaking-editorial-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 4.45vw, 4.55rem);
+}
+
+body[data-page="speaking"] .speaking-role-strip .container {
+    grid-template-columns: 155px 190px 1fr auto;
+    min-height: 70px;
+    gap: 22px;
+}
+
+body[data-page="speaking"] .speaking-role-strip strong {
+    font-size: 1.1rem;
+}
+
+body[data-page="speaking"] main > .section-pad {
+    padding: 52px 0;
+}
+
+body[data-page="speaking"] .editorial-heading,
+body[data-page="speaking"] .split-heading {
+    margin-bottom: 28px;
+    gap: 32px;
+}
+
+body[data-page="speaking"] .editorial-heading h2,
+body[data-page="speaking"] .split-heading h2,
+body[data-page="speaking"] .page-cta-shell h2 {
+    font-size: clamp(2.05rem, 3.05vw, 3.1rem);
+    line-height: 1.06;
+}
+
+body[data-page="speaking"] .talk-ledger article {
+    grid-template-columns: 155px minmax(0, 1fr);
+    padding: 21px 0;
+    gap: 28px;
+    transition: transform 200ms ease, background 200ms ease, padding 200ms ease;
+}
+
+body[data-page="speaking"] .talk-ledger h3 {
+    margin: 6px 0 8px;
+    font-size: 1.32rem;
+}
+
+body[data-page="speaking"] .talk-ledger p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+body[data-page="speaking"] .tarbiyah-ledger article {
+    min-height: 190px;
+    padding: 22px;
+    transition: transform 220ms ease, background 220ms ease;
+}
+
+body[data-page="speaking"] .tarbiyah-ledger h3 {
+    margin: 27px 0 10px;
+    font-size: 1.3rem;
+}
+
+body[data-page="speaking"] .tarbiyah-ledger p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+body[data-page="speaking"] .engagement-grid {
+    gap: 12px;
+}
+
+body[data-page="speaking"] .engagement-grid article {
+    min-height: 180px;
+    padding: 19px;
+}
+
+body[data-page="speaking"] .engagement-grid h3 {
+    margin: 25px 0 9px;
+    font-size: 1.14rem;
+}
+
+body[data-page="speaking"] .engagement-grid p {
+    font-size: 0.76rem;
+}
+
+body[data-page="speaking"] .page-cta-shell {
+    padding: 30px 34px;
+    gap: 34px;
+}
+
+/* ------------------------- Blogs ------------------------- */
+
+body[data-page="blogs"] .blogs-hero {
+    padding: 50px 0 56px;
+}
+
+body[data-page="blogs"] .blogs-hero-layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(350px, 0.62fr);
+    min-height: 420px;
+    gap: 54px;
+}
+
+body[data-page="blogs"] .blogs-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 4.5vw, 4.65rem);
+}
+
+body[data-page="blogs"] .blogs-hero-layout > div:first-child > p:not(.eyebrow) {
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+body[data-page="blogs"] .blog-formula-stage {
+    min-height: 350px;
+    padding: 32px;
+    box-shadow: 16px 18px 0 rgba(141, 64, 88, 0.06), 0 22px 50px rgba(55, 31, 44, 0.16);
+}
+
+body[data-page="blogs"] .formula-main {
+    margin: 55px 0 35px;
+    font-size: clamp(3rem, 5.2vw, 4.65rem);
+}
+
+body[data-page="blogs"] main > .section-pad {
+    padding: 52px 0;
+}
+
+body[data-page="blogs"] .featured-blog-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(350px, 0.62fr);
+    gap: 54px;
+}
+
+body[data-page="blogs"] .featured-blog-layout h2 {
+    margin: 14px 0 17px;
+    font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+}
+
+body[data-page="blogs"] .featured-blog-lead {
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+body[data-page="blogs"] .featured-blog-layout ul {
+    margin: 20px 0 24px;
+}
+
+body[data-page="blogs"] .learning-model {
+    min-height: 375px;
+    box-shadow: 15px 17px 0 rgba(141, 64, 88, 0.06), var(--shadow-sm);
+}
+
+body[data-page="blogs"] .writing-directions li {
+    grid-template-columns: 80px minmax(0, 1fr);
+    padding: 20px 0;
+    gap: 25px;
+}
+
+body[data-page="blogs"] .writing-directions strong {
+    font-size: clamp(1.3rem, 2vw, 1.85rem);
+}
+
+body[data-page="blogs"] .writing-directions p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+body[data-page="blogs"] .blog-archive-cta .page-cta-shell {
+    padding: 30px 34px;
+    gap: 34px;
+}
+
+/* ------------------------- Contact ------------------------- */
+
+body[data-page="contact"] .contact-hero {
+    padding: 56px 0;
+}
+
+body[data-page="contact"] .contact-hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+    min-height: 390px;
+    gap: 52px;
+}
+
+body[data-page="contact"] .contact-hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 4.55vw, 4.7rem);
+}
+
+body[data-page="contact"] .contact-hero-layout > div:first-child > p:last-child {
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+body[data-page="contact"] .contact-signal {
+    width: min(100%, 300px);
+}
+
+body[data-page="contact"] .signal-core {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+}
+
+body[data-page="contact"] main > .section-pad {
+    padding: 52px 0;
+}
+
+body[data-page="contact"] .contact-card-grid {
+    gap: 12px;
+}
+
+body[data-page="contact"] .contact-card-grid a {
+    min-height: 220px;
+    padding: 20px;
+}
+
+body[data-page="contact"] .contact-card-grid strong {
+    margin: 31px 0 10px;
+    font-size: 1.16rem;
+}
+
+body[data-page="contact"] .contact-card-grid p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+body[data-page="contact"] .collaboration-layout {
+    gap: 52px;
+}
+
+body[data-page="contact"] .collaboration-layout h2 {
+    font-size: clamp(2.05rem, 3.05vw, 3.1rem);
+    line-height: 1.06;
+}
+
+body[data-page="contact"] .collaboration-list {
+    gap: 9px;
+}
+
+body[data-page="contact"] .collaboration-list article {
+    grid-template-columns: 38px 1fr;
+    padding: 16px;
+    gap: 14px;
+    border-radius: 11px;
+    transition: transform 220ms ease, background 220ms ease;
+}
+
+body[data-page="contact"] .collaboration-list article > span {
+    width: 34px;
+    height: 34px;
+}
+
+body[data-page="contact"] .affiliation-shell {
+    padding: 27px 31px;
+    gap: 38px;
+}
+
+body[data-page="contact"] .affiliation-shell h2 {
+    margin: 8px 0 4px;
+    font-size: 1.75rem;
+}
+
+/* ------------------------- Shared interaction polish ------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+    body[data-page="projects"] .project-card:hover {
+        border-color: rgba(141, 64, 88, 0.2);
+        box-shadow: 0 16px 34px rgba(72, 43, 55, 0.08);
+        transform: translateY(-4px);
+    }
+
+    body[data-page="speaking"] .talk-ledger article:hover {
+        padding-left: 8px;
+        background: rgba(255, 253, 250, 0.5);
+        transform: translateY(-2px);
+    }
+
+    body[data-page="speaking"] .tarbiyah-ledger article:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-4px);
+    }
+
+    body[data-page="blogs"] .writing-directions li {
+        transition: padding 200ms ease, background 200ms ease;
+    }
+
+    body[data-page="blogs"] .writing-directions li:hover {
+        padding-left: 8px;
+        background: rgba(141, 64, 88, 0.025);
+    }
+
+    body[data-page="contact"] .collaboration-list article:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+    }
+}
+
+/* ------------------------- Tablet ------------------------- */
+
+@media (max-width: 1020px) {
+    body[data-page="teaching"] .teaching-editorial-hero .editorial-hero-grid,
+    body[data-page="projects"] .page-hero-layout,
+    body[data-page="speaking"] .speaking-editorial-hero .editorial-hero-grid,
+    body[data-page="blogs"] .blogs-hero-layout,
+    body[data-page="blogs"] .featured-blog-layout,
+    body[data-page="contact"] .contact-hero-layout {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 34px;
+    }
+
+    body[data-page="teaching"] .teaching-manuscript,
+    body[data-page="projects"] .project-hero-visual,
+    body[data-page="blogs"] .blog-formula-stage,
+    body[data-page="blogs"] .learning-model,
+    body[data-page="contact"] .contact-signal {
+        width: min(100%, 520px);
+    }
+
+    body[data-page="teaching"] .course-catalog-link,
+    body[data-page="contact"] .affiliation-shell {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    body[data-page="speaking"] .speaking-role-strip .container {
+        grid-template-columns: 1fr 1fr;
+        padding: 14px 0;
+    }
+}
+
+/* ------------------------- Mobile ------------------------- */
+
+@media (max-width: 760px) {
+    body[data-page="teaching"] .teaching-editorial-hero,
+    body[data-page="projects"] .page-hero,
+    body[data-page="speaking"] .speaking-editorial-hero,
+    body[data-page="blogs"] .blogs-hero,
+    body[data-page="contact"] .contact-hero {
+        padding: 38px 0 42px;
+    }
+
+    body[data-page="teaching"] main > .section-pad,
+    body[data-page="projects"] main > .section-pad,
+    body[data-page="speaking"] main > .section-pad,
+    body[data-page="blogs"] main > .section-pad,
+    body[data-page="contact"] main > .section-pad {
+        padding: 40px 0;
+    }
+
+    body[data-page="teaching"] .teaching-editorial-hero h1,
+    body[data-page="projects"] .page-hero h1,
+    body[data-page="speaking"] .speaking-editorial-hero h1,
+    body[data-page="blogs"] .blogs-hero h1,
+    body[data-page="contact"] .contact-hero h1 {
+        font-size: clamp(2.65rem, 11vw, 3.55rem);
+    }
+
+    body[data-page="teaching"] .profile-intro-grid,
+    body[data-page="teaching"] .split-heading,
+    body[data-page="teaching"] .learning-path-layout,
+    body[data-page="projects"] .split-heading,
+    body[data-page="speaking"] .editorial-heading,
+    body[data-page="speaking"] .split-heading,
+    body[data-page="contact"] .collaboration-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    body[data-page="teaching"] .course-card-grid,
+    body[data-page="teaching"] .resource-grid,
+    body[data-page="projects"] .project-grid,
+    body[data-page="projects"] .principle-strip,
+    body[data-page="speaking"] .engagement-grid,
+    body[data-page="contact"] .contact-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="teaching"] .course-card-grid article,
+    body[data-page="teaching"] .resource-grid article,
+    body[data-page="projects"] .project-card,
+    body[data-page="speaking"] .engagement-grid article,
+    body[data-page="contact"] .contact-card-grid a {
+        min-height: 0;
+    }
+
+    body[data-page="projects"] .project-card-wide {
+        grid-column: auto;
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="projects"] .project-card-wide .project-visual {
+        min-height: 190px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    body[data-page="speaking"] .speaking-role-strip .container {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 6px;
+    }
+
+    body[data-page="speaking"] .talk-ledger article {
+        grid-template-columns: 1fr;
+        padding: 18px 0;
+        gap: 8px;
+    }
+
+    body[data-page="speaking"] .tarbiyah-ledger {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="speaking"] .tarbiyah-ledger article {
+        min-height: 0;
+        padding: 18px;
+        border-right: 0;
+    }
+
+    body[data-page="blogs"] .blog-formula-stage {
+        min-height: 315px;
+        padding: 25px 20px;
+        transform: none;
+    }
+
+    body[data-page="blogs"] .formula-main {
+        margin: 48px 0 30px;
+        font-size: clamp(2.8rem, 15vw, 4.1rem);
+    }
+
+    body[data-page="blogs"] .featured-blog-layout h2 {
+        font-size: clamp(2.2rem, 9vw, 3rem);
+    }
+
+    body[data-page="blogs"] .learning-model {
+        min-height: 320px;
+    }
+
+    body[data-page="blogs"] .writing-directions li {
+        grid-template-columns: 1fr;
+        padding: 17px 0;
+        gap: 5px;
+    }
+
+    body[data-page="contact"] .contact-signal {
+        width: min(100%, 260px);
+    }
+
+    body[data-page="contact"] .affiliation-shell {
+        padding: 22px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body[data-page="projects"] .project-card,
+    body[data-page="speaking"] .talk-ledger article,
+    body[data-page="speaking"] .tarbiyah-ledger article,
+    body[data-page="blogs"] .writing-directions li,
+    body[data-page="contact"] .collaboration-list article {
+        transition: none;
+    }
+
+    body[data-page="projects"] .project-card:hover,
+    body[data-page="speaking"] .talk-ledger article:hover,
+    body[data-page="speaking"] .tarbiyah-ledger article:hover,
+    body[data-page="contact"] .collaboration-list article:hover {
+        transform: none;
+    }
+}

@@ -9027,3 +9027,326 @@ body[data-page="projects"] .principle-strip article {
         transform: none;
     }
 }
+
+
+/* =========================================================
+   PROJECTS PAGE — COMPACT HORIZONTAL CARDS — 2026-09-03
+========================================================= */
+
+body[data-page="projects"] .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+body[data-page="projects"] .project-card,
+body[data-page="projects"] .project-card-wide {
+    display: grid;
+    grid-template-columns: minmax(300px, 39%) minmax(0, 61%);
+    grid-column: auto;
+    min-height: 246px;
+    overflow: hidden;
+    background: #fffdfa;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(72, 43, 55, 0.055);
+    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+body[data-page="projects"] .project-visual,
+body[data-page="projects"] .project-card-wide .project-visual {
+    position: relative;
+    min-height: 246px;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+    transition: transform 280ms ease, filter 280ms ease;
+}
+
+body[data-page="projects"] .project-content,
+body[data-page="projects"] .project-card-wide .project-content {
+    display: flex;
+    padding: 27px 30px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body[data-page="projects"] .project-meta {
+    margin-bottom: 4px;
+}
+
+body[data-page="projects"] .project-meta span {
+    color: #8d4058;
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+}
+
+body[data-page="projects"] .project-meta b {
+    padding: 7px 12px;
+    color: #5b6270;
+    background: #f1ece8;
+    border-radius: 999px;
+    font-size: 0.68rem;
+}
+
+body[data-page="projects"] .project-content h3,
+body[data-page="projects"] .project-card-wide h3 {
+    margin: 13px 0 10px;
+    font-size: clamp(1.65rem, 2.15vw, 2.2rem);
+    line-height: 1.08;
+}
+
+body[data-page="projects"] .project-content > p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+body[data-page="projects"] .project-content .tag-row {
+    display: flex;
+    margin: 16px 0 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+body[data-page="projects"] .project-content .tag-row span {
+    padding: 8px 11px;
+    color: #5b4e55;
+    background: #f3efec;
+    border: 1px solid #e8ddd8;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+body[data-page="projects"] .project-content .card-link {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    margin-top: auto;
+    color: var(--ink);
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+body[data-page="projects"] .project-content .card-link span {
+    color: #8d4058;
+    transition: transform 180ms ease;
+}
+
+body[data-page="projects"] .project-evidence {
+    margin: 13px 0 0;
+}
+
+body[data-page="projects"] .project-evidence span {
+    padding: 7px 10px;
+    border-radius: 8px;
+}
+
+body[data-page="projects"] .project-visual-label {
+    z-index: 4;
+    display: block;
+    margin-top: 15px;
+    color: inherit;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+}
+
+body[data-page="projects"] .retail-project {
+    display: flex;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #f6ecef;
+    background:
+        radial-gradient(circle at 78% 18%, rgba(173, 112, 73, 0.28), transparent 30%),
+        linear-gradient(145deg, #2d1923, #4b2939);
+}
+
+body[data-page="projects"] .project-visual-kicker {
+    position: absolute;
+    top: 18px;
+    left: 20px;
+    color: #d6b8c3;
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+body[data-page="projects"] .retail-bars {
+    position: relative;
+    display: flex;
+    width: min(80%, 270px);
+    height: 116px;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 11px;
+}
+
+body[data-page="projects"] .retail-bars > span {
+    z-index: 2;
+    width: 24px;
+    height: var(--h);
+    background: linear-gradient(#d7a989, #9c5269);
+    border-radius: 5px 5px 1px 1px;
+}
+
+body[data-page="projects"] .retail-bars i {
+    position: absolute;
+    top: 44%;
+    left: 4%;
+    width: 92%;
+    height: 2px;
+    background: #e4c5a8;
+    transform: rotate(-12deg);
+}
+
+body[data-page="projects"] .retail-project .project-visual-label {
+    color: #f6e9ee;
+}
+
+body[data-page="projects"] .research-pipeline-project {
+    background:
+        radial-gradient(circle at 22% 22%, rgba(141, 64, 88, 0.11), transparent 28%),
+        linear-gradient(145deg, #faf7f5, #eee5e3);
+}
+
+body[data-page="projects"] .research-pipeline-project .project-visual-label {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    color: #765965;
+    font-size: 0.68rem;
+}
+
+body[data-page="projects"] .curriculum-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #392a31;
+    background:
+        radial-gradient(circle at 80% 18%, rgba(173, 112, 73, 0.16), transparent 27%),
+        linear-gradient(145deg, #f8f2ee, #eee5df);
+}
+
+body[data-page="projects"] .curriculum-flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body[data-page="projects"] .curriculum-project .project-visual-label {
+    color: #735b65;
+}
+
+body[data-page="projects"] .lab-project {
+    background:
+        radial-gradient(circle at 82% 15%, rgba(173, 112, 73, 0.16), transparent 28%),
+        linear-gradient(145deg, #281720, #402330);
+}
+
+body[data-page="projects"] .lab-project .project-visual-label {
+    color: #bca9b2;
+    font-size: 0.68rem;
+}
+
+body[data-page="projects"] .principle-strip article {
+    transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body[data-page="projects"] .project-card:hover {
+        border-color: rgba(141, 64, 88, 0.23);
+        box-shadow: 0 19px 42px rgba(72, 43, 55, 0.11);
+        transform: translateY(-5px);
+    }
+
+    body[data-page="projects"] .project-card:hover .project-visual {
+        filter: saturate(1.04);
+        transform: scale(1.012);
+    }
+
+    body[data-page="projects"] .project-card:hover .card-link span {
+        transform: translate(4px, -2px);
+    }
+
+    body[data-page="projects"] .principle-strip article:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.18);
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 900px) {
+    body[data-page="projects"] .project-card,
+    body[data-page="projects"] .project-card-wide {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    body[data-page="projects"] .project-visual,
+    body[data-page="projects"] .project-card-wide .project-visual {
+        min-height: 190px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    body[data-page="projects"] .project-content,
+    body[data-page="projects"] .project-card-wide .project-content {
+        padding: 22px 20px;
+    }
+}
+
+@media (max-width: 560px) {
+    body[data-page="projects"] .project-grid {
+        gap: 13px;
+    }
+
+    body[data-page="projects"] .project-visual {
+        min-height: 170px;
+    }
+
+    body[data-page="projects"] .project-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    body[data-page="projects"] .project-content h3,
+    body[data-page="projects"] .project-card-wide h3 {
+        font-size: clamp(1.45rem, 7.5vw, 1.9rem);
+    }
+
+    body[data-page="projects"] .project-content > p {
+        font-size: 0.86rem;
+    }
+
+    body[data-page="projects"] .project-content .tag-row {
+        margin: 14px 0 17px;
+    }
+
+    body[data-page="projects"] .project-evidence {
+        margin-top: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body[data-page="projects"] .project-card,
+    body[data-page="projects"] .project-visual,
+    body[data-page="projects"] .principle-strip article {
+        transition: none;
+    }
+
+    body[data-page="projects"] .project-card:hover,
+    body[data-page="projects"] .project-card:hover .project-visual,
+    body[data-page="projects"] .principle-strip article:hover {
+        transform: none;
+    }
+}

@@ -11,16 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const forecastMarker = document.querySelector("[data-forecast-marker]");
     const actualMarker = document.querySelector("[data-actual-marker]");
 
-    const verifiedForecasts = {
+    const fallbackForecasts = {
         "2025-02-17": {
             current: 143.00,
-            predicted: 157.54,
-            change: 14.54,
+            predicted: 165.04,
+            change: 22.04,
             actual: 227.00,
-            error: 69.46,
-            forecastLabel: "18 February 2025"
+            error: 61.96,
+            forecastDate: "2025-02-18"
         }
     };
+
+    let forecastRecords = fallbackForecasts;
+
+    const formatDate = (dateString) => new Intl.DateTimeFormat("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC"
+    }).format(new Date(`${dateString}T00:00:00Z`));
 
     const renderForecast = (record) => {
         const scaleMaximum = Math.max(record.current, record.predicted, record.actual);
@@ -30,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPM.textContent = record.current.toFixed(2);
         predictedPM.textContent = record.predicted.toFixed(2);
         predictedChange.textContent = `${record.change >= 0 ? "+" : ""}${record.change.toFixed(2)}`;
-        forecastDate.textContent = `Forecast for ${record.forecastLabel}`;
+        forecastDate.textContent = `Forecast for ${formatDate(record.forecastDate)}`;
         errorLabel.textContent = `${record.error.toFixed(2)} absolute error`;
         forecastMarker.style.setProperty("--position", `${predictedPosition.toFixed(1)}%`);
         actualMarker.style.setProperty("--position", `${actualPosition.toFixed(1)}%`);
@@ -40,24 +49,45 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-label",
             `Predicted PM2.5 ${record.predicted.toFixed(2)} compared with actual PM2.5 ${record.actual.toFixed(2)}`
         );
-        message.textContent = "This verified historical case also reveals the model’s difficulty with sudden pollution spikes.";
+        message.textContent = "Historical model replay generated. Walk-forward validation results below remain the out-of-sample performance evidence.";
 
         predictedPM.closest("article").classList.remove("prediction-flash");
         window.requestAnimationFrame(() => predictedPM.closest("article").classList.add("prediction-flash"));
     };
 
+    const loadForecasts = async () => {
+        try {
+            const response = await fetch("forecast-data.json?v=1");
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const payload = await response.json();
+            const availableDates = Object.keys(payload.records || {});
+            if (!availableDates.length) throw new Error("No forecast records found");
+
+            forecastRecords = payload.records;
+            dateInput.min = availableDates[0];
+            dateInput.max = availableDates[availableDates.length - 1];
+            message.textContent = `${availableDates.length.toLocaleString()} model-ready observation dates loaded. Choose a date and generate its next-day replay.`;
+        } catch (error) {
+            console.error("Unable to load forecast history:", error);
+            message.textContent = "The full date history could not be loaded. The latest verified replay remains available.";
+        }
+    };
+
     if (form && dateInput) {
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            const record = verifiedForecasts[dateInput.value];
+            const record = forecastRecords[dateInput.value];
 
             if (!record) {
-                message.textContent = "Choose 17 February 2025 to run the verified historical model replay.";
+                message.textContent = "No model-ready observation exists for this date because the required pollution history was unavailable. Choose another date.";
                 return;
             }
 
             renderForecast(record);
         });
+
+        loadForecasts();
     }
 
     const tabs = Array.from(document.querySelectorAll("[data-dashboard-tab]"));

@@ -53,27 +53,27 @@
                     <section class="forecast-console" aria-labelledby="forecast-console-title">
                         <div class="console-heading">
                             <div><p>Forecast workspace</p><h2 id="forecast-console-title">Choose an observation date</h2></div>
-                            <span>Historical test</span>
+                            <span>Historical replay</span>
                         </div>
 
                         <form class="forecast-form" data-forecast-form>
                             <label for="observation-date">Observation date</label>
-                            <div><input id="observation-date" name="observation-date" type="date" value="2025-02-17" min="2025-02-17" max="2025-02-17" required><button type="submit">Generate forecast <span>→</span></button></div>
-                            <small>Verified model replay available for 17 February 2025.</small>
+                            <div><input id="observation-date" name="observation-date" type="date" value="2025-02-17" min="2019-05-30" max="2025-02-17" required><button type="submit">Generate forecast <span>→</span></button></div>
+                            <small>Choose any model-ready date from 30 May 2019 to 17 February 2025.</small>
                         </form>
 
                         <div class="prediction-grid" aria-live="polite">
                             <article><span>Current PM<sub>2.5</sub></span><strong data-current-pm>143.00</strong><small>µg/m³</small></article>
-                            <article class="prediction-primary"><span>Next-day forecast</span><strong data-predicted-pm>157.54</strong><small>µg/m³</small></article>
-                            <article><span>Predicted change</span><strong data-predicted-change>+14.54</strong><small>µg/m³</small></article>
+                            <article class="prediction-primary"><span>Next-day forecast</span><strong data-predicted-pm>165.04</strong><small>µg/m³</small></article>
+                            <article><span>Predicted change</span><strong data-predicted-change>+22.04</strong><small>µg/m³</small></article>
                         </div>
 
                         <div class="forecast-comparison">
-                            <div class="comparison-heading"><span data-forecast-date>Forecast for 18 February 2025</span><b data-error-label>69.46 absolute error</b></div>
-                            <div class="comparison-track" data-comparison-track aria-label="Predicted PM2.5 157.54 compared with actual PM2.5 227.00"><i class="forecast-marker" data-forecast-marker style="--position:69.4%"><span>157.54</span></i><i class="actual-marker" data-actual-marker style="--position:100%"><span>227.00 actual</span></i></div>
+                            <div class="comparison-heading"><span data-forecast-date>Forecast for 18 February 2025</span><b data-error-label>61.96 absolute error</b></div>
+                            <div class="comparison-track" data-comparison-track aria-label="Predicted PM2.5 165.04 compared with actual PM2.5 227.00"><i class="forecast-marker" data-forecast-marker style="--position:72.7%"><span>165.04</span></i><i class="actual-marker" data-actual-marker style="--position:100%"><span>227.00 actual</span></i></div>
                         </div>
 
-                        <p class="console-message" data-console-message>This verified historical case shows the interface and also reveals the model’s difficulty with sudden pollution spikes.</p>
+                        <p class="console-message" data-console-message>This replay uses the final fitted model; walk-forward validation performance is reported separately below.</p>
                     </section>
                 </div>
             </div>
@@ -217,6 +217,6 @@
 
     <footer class="site-footer"><div class="container footer-layout"><div><a class="footer-brand" href="../../index.html">Dr. Hira Benish</a><p>Mathematics · Research · Data · Intelligence</p></div><nav aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../research.html">Research</a><a href="../../teaching.html">Teaching</a><a href="../../projects.html">Projects</a><a href="../../blogs.html">Blogs</a><a href="../../contact.html">Connect</a></nav><div class="footer-meta"><p>Associate Professor of Mathematics &amp; Head of Department</p><p>© <span data-current-year>2026</span> Dr. Hira Benish</p></div></div></footer>
     <script src="../../js/script.js?v=9"></script>
-    <script src="project.js?v=3"></script>
+    <script src="project.js?v=5"></script>
 </body>
 </html>

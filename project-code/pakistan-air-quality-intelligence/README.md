@@ -61,6 +61,7 @@ Raw and processed CSV files are generated locally and excluded from Git because 
 │   ├── build_features.py
 │   ├── download_pm25.py
 │   ├── download_weather.py
+│   ├── export_dashboard_predictions.py
 │   ├── predict_latest.py
 │   └── train_model.py
 ├── .env.example
@@ -97,6 +98,15 @@ python src/predict_latest.py
 
 The training script regenerates the cross-validation report and saves the fitted model bundle in `models/`.
 
+To regenerate the compact historical-replay data used by the portfolio dashboard:
+
+```bash
+python src/export_dashboard_predictions.py \
+  --output ../../projects/pakistan-air-quality-intelligence/forecast-data.json
+```
+
+These dashboard values are predictions from the final model fitted on the complete modelling dataset. They are historical model replays; the separate walk-forward results provide the out-of-sample performance evidence.
+
 ## Responsible interpretation
 
 This is a research and portfolio project, not a live public-health warning system. It uses one monitoring location, does not directly model traffic, industrial activity, dust or crop-burning events, and has no probabilistic prediction interval. See [MODEL_CARD.md](MODEL_CARD.md) for intended use, limitations and next steps.
@@ -105,4 +115,3 @@ This is a research and portfolio project, not a live public-health warning syste
 
 **Dr. Hira Benish**  
 Mathematician · Researcher · Educator
-

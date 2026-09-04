@@ -4,7 +4,7 @@
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Selected projects of Dr. Hira Benish in Graph Theory, Data Science, Python, Machine Learning and curriculum development.">
     <meta name="theme-color" content="#35212f"><link rel="canonical" href="https://drhirabenish.github.io/projects.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <title>Projects | Dr. Hira Benish</title><link rel="stylesheet" href="css/style.css?v=19">
+    <title>Projects | Dr. Hira Benish</title><link rel="stylesheet" href="css/style.css?v=19"><link rel="stylesheet" href="css/air-quality-card.css?v=1">
 </head>
 <body data-page="projects">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -16,6 +16,26 @@
         <section class="project-portfolio section-pad"><div class="container"><div class="split-heading" data-reveal><div><p class="section-kicker">Selected portfolio</p><h2>Work grounded in evidence and learning.</h2></div><p>Projects include completed analyses, structured educational resources and research pipelines under active development.</p></div>
             <div class="filter-bar" data-reveal aria-label="Filter projects"><button class="is-active" type="button" data-filter-control="all" aria-pressed="true">All</button><button type="button" data-filter-control="research" aria-pressed="false">Research</button><button type="button" data-filter-control="data" aria-pressed="false">Data</button><button type="button" data-filter-control="teaching" aria-pressed="false">Teaching</button><button type="button" data-filter-control="leadership" aria-pressed="false">Leadership</button></div>
             <div class="project-grid">
+                <article class="project-card" data-filter-item="data" data-reveal>
+                    <div class="project-visual air-quality-project" aria-hidden="true">
+                        <div class="project-visual-kicker">Lahore forecasting</div>
+                        <div class="air-quality-plot">
+                            <span style="--h:42%"></span><span style="--h:66%"></span><span style="--h:51%"></span><span style="--h:78%"></span><span style="--h:58%"></span><span style="--h:88%"></span><span style="--h:69%"></span>
+                            <svg viewBox="0 0 280 110" preserveAspectRatio="none"><path d="M5 86 C34 76, 42 43, 72 55 S112 83, 141 47 S184 22, 208 43 S245 67, 275 28"></path></svg>
+                        </div>
+                        <div class="air-quality-reading"><strong>32.16</strong><span>CV MAE</span></div>
+                        <strong class="project-visual-label">Air → Weather → Next-day PM<sub>2.5</sub></strong>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta"><span>Machine Learning</span><b>Completed predictive case study</b></div>
+                        <h3>Pakistan Air Quality Intelligence</h3>
+                        <p>A reproducible next-day PM<sub>2.5</sub> forecasting study for Lahore using OpenAQ observations, NASA POWER weather and honest time-series validation.</p>
+                        <div class="project-evidence"><span><strong>1,636</strong> modelling rows</span><span><strong>6.54%</strong> over baseline</span></div>
+                        <div class="tag-row"><span>Python</span><span>Time Series</span><span>OpenAQ</span><span>Machine Learning</span></div>
+                        <a class="card-link" href="projects/pakistan-air-quality-intelligence/">View interactive case study <span>↗</span></a>
+                    </div>
+                </article>
+
                 <article class="project-card" data-filter-item="data" data-reveal>
                     <div class="project-visual chart-project retail-project" aria-hidden="true">
                         <div class="project-visual-kicker">Retail analytics</div>

@@ -1,0 +1,94 @@
+/* Pakistan Air Quality Intelligence project card */
+body[data-page="projects"] .air-quality-project {
+    display: flex;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #f0f7f4;
+    background:
+        radial-gradient(circle at 82% 16%, rgba(216, 177, 135, 0.22), transparent 30%),
+        linear-gradient(145deg, #1d302e, #355950);
+}
+
+body[data-page="projects"] .air-quality-project .project-visual-kicker {
+    color: #c0d4cf;
+}
+
+body[data-page="projects"] .air-quality-plot {
+    position: relative;
+    display: flex;
+    width: min(84%, 286px);
+    height: 112px;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body[data-page="projects"] .air-quality-plot > span {
+    width: 100%;
+    height: var(--h);
+    background: linear-gradient(to top, rgba(117, 160, 151, 0.18), rgba(117, 160, 151, 0.55));
+}
+
+body[data-page="projects"] .air-quality-plot svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+body[data-page="projects"] .air-quality-plot path {
+    fill: none;
+    stroke: #e7c19b;
+    stroke-width: 3;
+    vector-effect: non-scaling-stroke;
+}
+
+body[data-page="projects"] .air-quality-reading {
+    position: absolute;
+    top: 50px;
+    right: 24px;
+    padding: 7px 9px;
+    background: rgba(24, 47, 43, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body[data-page="projects"] .air-quality-reading strong,
+body[data-page="projects"] .air-quality-reading span {
+    display: block;
+}
+
+body[data-page="projects"] .air-quality-reading strong {
+    color: #e7c19b;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 1.22rem;
+    line-height: 1;
+}
+
+body[data-page="projects"] .air-quality-reading span {
+    margin-top: 2px;
+    color: #c0d4cf;
+    font-size: 0.56rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+body[data-page="projects"] .air-quality-project .project-visual-label {
+    color: #f0f7f4;
+}
+
+body[data-page="projects"] .air-quality-project sub,
+body[data-page="projects"] .project-content sub {
+    font-size: 0.64em;
+    vertical-align: -0.2em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body[data-page="projects"] .project-card:hover .air-quality-plot path {
+        stroke: #f2d2b3;
+        stroke-width: 3.5;
+    }
+}

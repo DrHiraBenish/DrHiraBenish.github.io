@@ -1,0 +1,12 @@
+name: pakistan-air-quality
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - joblib>=1.4
+  - numpy>=2.0
+  - pandas>=2.2
+  - python-dotenv>=1.0
+  - requests>=2.32
+  - scikit-learn>=1.7
+

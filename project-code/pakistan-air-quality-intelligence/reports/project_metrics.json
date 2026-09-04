@@ -1,0 +1,24 @@
+{
+  "location": "US Diplomatic Post: Lahore",
+  "location_id": 8664,
+  "sensor_id": 25135,
+  "coordinates": {
+    "latitude": 31.560078,
+    "longitude": 74.33589
+  },
+  "calendar_days": 2113,
+  "pm25_rows_received": 2038,
+  "initial_missing_pm25_days": 351,
+  "interpolated_short_gap_values": 46,
+  "remaining_missing_pm25_days": 305,
+  "cleaned_pm25_values": 1808,
+  "model_rows": 1636,
+  "model_period": {
+    "start": "2019-05-30",
+    "end": "2025-02-17"
+  },
+  "cross_validated_mae": 32.16,
+  "baseline_mae": 34.48,
+  "improvement_percent": 6.54,
+  "folds_beating_baseline": 5
+}

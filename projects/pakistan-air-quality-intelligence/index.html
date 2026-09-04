@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pakistan Air Quality Intelligence: an interactive next-day PM2.5 forecasting workspace for Lahore using OpenAQ, NASA POWER and time-aware machine learning validation.">
-    <meta name="theme-color" content="#07131f">
+    <meta name="description" content="Pakistan Air Quality Intelligence: an interactive next-day PM2.5 machine-learning case study for Lahore using OpenAQ, NASA POWER and chronological validation.">
+    <meta name="theme-color" content="#071a28">
     <link rel="canonical" href="https://drhirabenish.github.io/projects/pakistan-air-quality-intelligence/">
     <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Pakistan Air Quality Intelligence | Dr. Hira Benish">
-    <meta property="og:description" content="Explore a compact next-day PM2.5 prediction workspace and time-aware validation results for Lahore.">
+    <meta property="og:description" content="Explore a reproducible next-day PM2.5 prediction model and its chronological validation for Lahore.">
     <meta property="og:url" content="https://drhirabenish.github.io/projects/pakistan-air-quality-intelligence/">
     <title>Pakistan Air Quality Intelligence | Dr. Hira Benish</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css?v=19">
-    <link rel="stylesheet" href="project.css?v=4">
+    <link rel="stylesheet" href="project.css?v=8">
 </head>
 <body data-page="projects" class="aq-ml-page">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -30,50 +30,71 @@
 
     <main id="main-content">
         <section class="forecast-stage">
-            <div class="forecast-grid" aria-hidden="true"></div>
+            <canvas class="airfield" data-airfield aria-hidden="true"></canvas>
+            <div class="forecast-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
             <div class="container">
                 <div class="forecast-topline">
                     <a href="../../projects.html"><span>←</span> All projects</a>
-                    <p><i></i> Research forecasting prototype</p>
+                    <p>Machine-learning case study · Lahore</p>
                 </div>
 
                 <div class="forecast-layout">
-                    <div class="forecast-intro">
-                        <p class="forecast-eyebrow">Lahore · Next-day PM<sub>2.5</sub></p>
+                    <header class="forecast-intro">
+                        <p class="forecast-eyebrow">Next-day PM<sub>2.5</sub> regression</p>
                         <h1>Pakistan Air Quality <span>Intelligence</span></h1>
-                        <p class="forecast-deck">A machine-learning workspace for estimating tomorrow’s PM<sub>2.5</sub> from recent pollution behaviour, weather and seasonal signals.</p>
+                        <p class="forecast-deck">A reproducible model that estimates Lahore’s next-day PM<sub>2.5</sub> from recent pollution, weather and seasonal features.</p>
                         <dl class="forecast-facts">
-                            <div><dt>Model</dt><dd>Gradient boosting</dd></div>
+                            <div><dt>Final estimator</dt><dd>Histogram gradient boosting</dd></div>
+                            <div><dt>Training data</dt><dd>1,636 model-ready days</dd></div>
                             <div><dt>Validation</dt><dd>5 chronological folds</dd></div>
-                            <div><dt>Target</dt><dd>Next-day change</dd></div>
                         </dl>
-                        <p class="station-note"><span>31.560078° N · 74.335890° E</span> StateAir Lahore · OpenAQ sensor 25135</p>
-                    </div>
+                        <p class="station-note"><span>StateAir Lahore</span> OpenAQ location 8664 · sensor 25135</p>
+                    </header>
 
-                    <section class="forecast-console" aria-labelledby="forecast-console-title">
-                        <div class="console-heading">
-                            <div><p>Forecast workspace</p><h2 id="forecast-console-title">Choose an observation date</h2></div>
-                            <span>Historical replay</span>
+                    <section class="prediction-workbench" aria-labelledby="forecast-console-title">
+                        <div class="workbench-heading">
+                            <div><p>Historical model replay</p><h2 id="forecast-console-title">Predict the following day</h2></div>
+                            <span>µg/m³</span>
                         </div>
 
                         <form class="forecast-form" data-forecast-form>
                             <label for="observation-date">Observation date</label>
-                            <div><input id="observation-date" name="observation-date" type="date" value="2025-02-17" min="2019-05-30" max="2025-02-17" required><button type="submit">Generate forecast <span>→</span></button></div>
-                            <small>Choose any model-ready date from 30 May 2019 to 17 February 2025.</small>
+                            <div><input id="observation-date" name="observation-date" type="date" value="2025-02-17" min="2019-05-30" max="2025-02-17" required><button type="submit">Run model</button></div>
+                            <small>Available model-ready dates: 30 May 2019–17 February 2025.</small>
                         </form>
 
-                        <div class="prediction-grid" aria-live="polite">
-                            <article><span>Current PM<sub>2.5</sub></span><strong data-current-pm>143.00</strong><small>µg/m³</small></article>
-                            <article class="prediction-primary"><span>Next-day forecast</span><strong data-predicted-pm>165.04</strong><small>µg/m³</small></article>
-                            <article><span>Predicted change</span><strong data-predicted-change>+22.04</strong><small>µg/m³</small></article>
+                        <div class="forecast-result" aria-live="polite">
+                            <div class="primary-reading">
+                                <span data-forecast-date>Forecast for 18 February 2025</span>
+                                <strong data-predicted-pm>165.04</strong>
+                                <small>Predicted PM<sub>2.5</sub> concentration</small>
+                            </div>
+                            <dl class="supporting-readings">
+                                <div><dt>Current</dt><dd><span data-current-pm>143.00</span></dd></div>
+                                <div><dt>Predicted change</dt><dd><span data-predicted-change>+22.04</span></dd></div>
+                                <div><dt>Observed next day</dt><dd><span data-actual-pm>227.00</span></dd></div>
+                                <div><dt>Absolute error</dt><dd><span data-error-label>61.96</span></dd></div>
+                            </dl>
                         </div>
 
-                        <div class="forecast-comparison">
-                            <div class="comparison-heading"><span data-forecast-date>Forecast for 18 February 2025</span><b data-error-label>61.96 absolute error</b></div>
-                            <div class="comparison-track" data-comparison-track aria-label="Predicted PM2.5 165.04 compared with actual PM2.5 227.00"><i class="forecast-marker" data-forecast-marker style="--position:72.7%"><span>165.04</span></i><i class="actual-marker" data-actual-marker style="--position:100%"><span>227.00 actual</span></i></div>
-                        </div>
+                        <figure class="history-chart">
+                            <figcaption><span>Recent PM<sub>2.5</sub> history</span><span class="chart-legend"><i></i>Observed <i></i>Forecast <i></i>Actual next day</span></figcaption>
+                            <div class="chart-frame">
+                                <span class="axis-high" data-chart-high>250</span>
+                                <span class="axis-low">0</span>
+                                <svg viewBox="0 0 620 168" preserveAspectRatio="none" data-history-chart role="img" aria-label="Recent observed PM2.5 values with the selected next-day model forecast">
+                                    <path class="chart-grid" d="M34 20 H604 M34 82 H604 M34 144 H604"></path>
+                                    <path class="observed-line" data-observed-path></path>
+                                    <path class="forecast-segment" data-forecast-segment></path>
+                                    <circle class="current-point" data-current-point r="4"></circle>
+                                    <circle class="forecast-point" data-forecast-point r="5"></circle>
+                                    <circle class="actual-point" data-actual-point r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="chart-dates"><span data-chart-start>19 January 2025</span><span data-chart-end>18 February 2025</span></div>
+                        </figure>
 
-                        <p class="console-message" data-console-message>This replay uses the final fitted model; walk-forward validation performance is reported separately below.</p>
+                        <p class="console-message" data-console-message>Historical replay from the final fitted model. Out-of-sample performance is reported through chronological validation below.</p>
                     </section>
                 </div>
             </div>
@@ -85,131 +106,81 @@
                 <div><span>Persistence baseline</span><strong>34.48 <small>µg/m³</small></strong></div>
                 <div><span>Average improvement</span><strong>6.54<small>%</small></strong></div>
                 <div><span>Folds beating baseline</span><strong>5<small>/5</small></strong></div>
-                <div><span>Model-ready days</span><strong>1,636</strong></div>
+                <div><span>Modelling period</span><strong>2019–2025</strong></div>
             </div>
         </section>
 
-        <section class="model-dashboard" aria-labelledby="dashboard-title">
+        <section class="validation-section" aria-labelledby="validation-title">
+            <div class="container validation-layout">
+                <div class="section-copy">
+                    <p>Chronological evaluation</p>
+                    <h2 id="validation-title">Performance tested on future time windows</h2>
+                    <p>The model was evaluated with five expanding time-series folds. Each training window occurred before its test window, preventing future information from leaking into earlier predictions.</p>
+                    <dl class="validation-summary"><div><dt>Enhanced model</dt><dd>32.16 MAE</dd></div><div><dt>Persistence rule</dt><dd>34.48 MAE</dd></div></dl>
+                </div>
+
+                <figure class="fold-chart" aria-labelledby="fold-chart-title">
+                    <figcaption id="fold-chart-title"><strong>Mean absolute error by fold</strong><span><i></i>Enhanced model <i></i>Baseline</span></figcaption>
+                    <div class="fold-row"><b>Fold 1</b><div><i class="model-bar" style="--bar:59.9%"><span>25.15</span></i><i class="baseline-bar" style="--bar:63.4%"><span>26.63</span></i></div><em>5.54% better</em></div>
+                    <div class="fold-row"><b>Fold 2</b><div><i class="model-bar" style="--bar:76.3%"><span>32.03</span></i><i class="baseline-bar" style="--bar:80.5%"><span>33.81</span></i></div><em>5.26% better</em></div>
+                    <div class="fold-row"><b>Fold 3</b><div><i class="model-bar" style="--bar:89.5%"><span>37.57</span></i><i class="baseline-bar" style="--bar:99.3%"><span>41.71</span></i></div><em>9.92% better</em></div>
+                    <div class="fold-row"><b>Fold 4</b><div><i class="model-bar" style="--bar:78.6%"><span>33.00</span></i><i class="baseline-bar" style="--bar:81.6%"><span>34.28</span></i></div><em>3.74% better</em></div>
+                    <div class="fold-row"><b>Fold 5</b><div><i class="model-bar" style="--bar:78.7%"><span>33.04</span></i><i class="baseline-bar" style="--bar:85.7%"><span>35.99</span></i></div><em>8.22% better</em></div>
+                </figure>
+            </div>
+        </section>
+
+        <section class="evidence-section" aria-labelledby="evidence-title">
             <div class="container">
-                <div class="dashboard-heading">
-                    <div><p>Model intelligence</p><h2 id="dashboard-title">The evidence behind the forecast</h2></div>
-                    <div class="dashboard-tabs" role="tablist" aria-label="Model dashboard views">
-                        <button class="is-active" id="validation-tab" type="button" role="tab" aria-selected="true" aria-controls="validation-panel" data-dashboard-tab="validation-panel">Validation</button>
-                        <button id="features-tab" type="button" role="tab" aria-selected="false" aria-controls="features-panel" data-dashboard-tab="features-panel">Features</button>
-                        <button id="health-tab" type="button" role="tab" aria-selected="false" aria-controls="health-panel" data-dashboard-tab="health-panel">Data health</button>
-                        <button id="journey-tab" type="button" role="tab" aria-selected="false" aria-controls="journey-panel" data-dashboard-tab="journey-panel">Model journey</button>
-                    </div>
+                <div class="section-heading"><p>Data and modelling evidence</p><h2 id="evidence-title">What the model actually learned from</h2></div>
+                <div class="evidence-columns">
+                    <article><span>01 · Sources</span><h3>Measured pollution and weather</h3><ul><li>OpenAQ StateAir Lahore daily PM<sub>2.5</sub></li><li>NASA POWER temperature, humidity, wind and precipitation</li><li>Station coordinates: 31.560078° N, 74.335890° E</li></ul></article>
+                    <article><span>02 · Preparation</span><h3>Conservative missing-data treatment</h3><ul><li>2,113 calendar days audited</li><li>Only gaps of three days or fewer interpolated</li><li>46 values filled; 305 longer-gap values remained missing</li></ul></article>
+                    <article><span>03 · Features</span><h3>Twenty time-aware predictors</h3><ul><li>PM<sub>2.5</sub> lags, rolling means and variability</li><li>Weather levels, changes and precipitation totals</li><li>Pollution momentum and annual seasonality</li></ul></article>
                 </div>
 
-                <div class="dashboard-panel is-active" id="validation-panel" role="tabpanel" aria-labelledby="validation-tab" data-dashboard-panel>
-                    <div class="panel-narrative">
-                        <p class="panel-kicker">5-fold walk-forward validation</p>
-                        <h3>Baseline beaten in every chronological window.</h3>
-                        <p>The enhanced model reduced average mean absolute error from <strong>34.48</strong> to <strong>32.16 µg/m³</strong>. Earlier dates were always used to predict later dates—never the reverse.</p>
-                        <div class="mini-metric-row"><span><b>6.54%</b> average gain</span><span><b>5/5</b> folds won</span></div>
-                    </div>
-                    <div class="fold-chart" role="img" aria-label="Enhanced model and baseline mean absolute error for five chronological folds">
-                        <div class="chart-heading"><strong>Mean absolute error by fold</strong><div><span class="model-key">Enhanced</span><span class="baseline-key">Baseline</span></div></div>
-                        <div class="fold-row"><b>01</b><div><i class="model-bar" style="--bar:59.9%"><span>25.15</span></i><i class="baseline-bar" style="--bar:63.4%"><span>26.63</span></i></div><em>+5.54%</em></div>
-                        <div class="fold-row"><b>02</b><div><i class="model-bar" style="--bar:76.3%"><span>32.03</span></i><i class="baseline-bar" style="--bar:80.5%"><span>33.81</span></i></div><em>+5.26%</em></div>
-                        <div class="fold-row"><b>03</b><div><i class="model-bar" style="--bar:89.5%"><span>37.57</span></i><i class="baseline-bar" style="--bar:99.3%"><span>41.71</span></i></div><em>+9.92%</em></div>
-                        <div class="fold-row"><b>04</b><div><i class="model-bar" style="--bar:78.6%"><span>33.00</span></i><i class="baseline-bar" style="--bar:81.6%"><span>34.28</span></i></div><em>+3.74%</em></div>
-                        <div class="fold-row"><b>05</b><div><i class="model-bar" style="--bar:78.7%"><span>33.04</span></i><i class="baseline-bar" style="--bar:85.7%"><span>35.99</span></i></div><em>+8.22%</em></div>
-                    </div>
-                </div>
-
-                <div class="dashboard-panel" id="features-panel" role="tabpanel" aria-labelledby="features-tab" data-dashboard-panel hidden>
-                    <div class="panel-narrative">
-                        <p class="panel-kicker">Signal investigation</p>
-                        <h3>Recent pollution behaviour carries the strongest signal.</h3>
-                        <p>This ranking comes from the exploratory Random Forest model. It is shown as diagnostic evidence—not as feature importance from the final gradient-boosting estimator.</p>
-                        <div class="feature-groups"><span>Pollution lags</span><span>Rolling statistics</span><span>Weather</span><span>Seasonality</span></div>
-                    </div>
-                    <div class="importance-chart" role="img" aria-label="Exploratory Random Forest feature importance ranking">
-                        <div class="chart-heading"><strong>Exploratory importance</strong><small>Share of model importance</small></div>
-                        <div class="importance-row"><span>3-day PM<sub>2.5</sub> mean</span><i><b style="--bar:100%"></b></i><strong>39.93%</strong></div>
-                        <div class="importance-row"><span>Current PM<sub>2.5</sub></span><i><b style="--bar:77.1%"></b></i><strong>30.78%</strong></div>
-                        <div class="importance-row"><span>1-day PM<sub>2.5</sub> lag</span><i><b style="--bar:17.3%"></b></i><strong>6.89%</strong></div>
-                        <div class="importance-row"><span>Temperature</span><i><b style="--bar:14.8%"></b></i><strong>5.90%</strong></div>
-                        <div class="importance-row"><span>Wind speed</span><i><b style="--bar:13.5%"></b></i><strong>5.39%</strong></div>
-                        <div class="importance-row"><span>7-day PM<sub>2.5</sub> mean</span><i><b style="--bar:9.2%"></b></i><strong>3.66%</strong></div>
-                    </div>
-                </div>
-
-                <div class="dashboard-panel" id="health-panel" role="tabpanel" aria-labelledby="health-tab" data-dashboard-panel hidden>
-                    <div class="panel-narrative">
-                        <p class="panel-kicker">23 May 2019 — 4 March 2025</p>
-                        <h3>Missing observations were handled conservatively.</h3>
-                        <p>Only complete PM<sub>2.5</sub> gaps of three days or fewer were interpolated. Longer gaps remained missing and were excluded from modelling.</p>
-                        <div class="missing-summary"><span><b>351</b> missing days found</span><span><b>46</b> short-gap values filled</span><span><b>305</b> remained missing</span></div>
-                    </div>
-                    <div class="data-funnel" aria-label="Data retention from calendar audit to model-ready rows">
-                        <div><span><b>2,113</b> calendar days</span><i><b style="--bar:100%"></b></i><em>100%</em></div>
-                        <div><span><b>2,038</b> PM<sub>2.5</sub> rows received</span><i><b style="--bar:96.5%"></b></i><em>96.5%</em></div>
-                        <div><span><b>1,808</b> cleaned values</span><i><b style="--bar:85.6%"></b></i><em>85.6%</em></div>
-                        <div><span><b>1,636</b> model-ready rows</span><i><b style="--bar:77.4%"></b></i><em>77.4%</em></div>
-                    </div>
-                </div>
-
-                <div class="dashboard-panel" id="journey-panel" role="tabpanel" aria-labelledby="journey-tab" data-dashboard-panel hidden>
-                    <div class="panel-narrative">
-                        <p class="panel-kicker">Model development</p>
-                        <h3>The target formulation mattered more than complexity alone.</h3>
-                        <p>Predicting tomorrow’s change produced a more consistent improvement than directly predicting tomorrow’s concentration.</p>
-                    </div>
-                    <ol class="model-journey" aria-label="Multi-year model development results">
-                        <li><span>01</span><p>Persistence baseline<small>Tomorrow = today</small></p><strong>34.48</strong></li>
-                        <li><span>02</span><p>Random Forest<small>Weather + pollution history</small></p><strong>33.20</strong></li>
-                        <li><span>03</span><p>Change model<small>Predict next-day difference</small></p><strong>32.34</strong></li>
-                        <li class="is-best"><span>04</span><p>Enhanced boosting<small>Trend + interactions + seasonality</small></p><strong>32.16</strong></li>
-                    </ol>
+                <div class="model-results">
+                    <div class="results-heading"><span>Model development results</span><small>Average chronological MAE · lower is better</small></div>
+                    <div class="result-row"><span>Persistence baseline</span><i><b style="--result:100%"></b></i><strong>34.48</strong></div>
+                    <div class="result-row"><span>Random Forest</span><i><b style="--result:96.3%"></b></i><strong>33.20</strong></div>
+                    <div class="result-row"><span>Change model</span><i><b style="--result:93.8%"></b></i><strong>32.34</strong></div>
+                    <div class="result-row is-selected"><span>Enhanced gradient boosting</span><i><b style="--result:93.3%"></b></i><strong>32.16</strong></div>
                 </div>
             </div>
         </section>
 
         <section class="model-workflow" aria-labelledby="workflow-title">
             <div class="container">
-                <div class="workflow-heading"><div><p>Machine-learning architecture</p><h2 id="workflow-title">From measurements to tomorrow’s estimate</h2></div><p>The final estimator learns the next-day change, then adds that change to the current PM<sub>2.5</sub> concentration.</p></div>
+                <div class="workflow-heading"><div><p>Machine-learning pipeline</p><h2 id="workflow-title">From observations to tomorrow’s estimate</h2></div><p>The final estimator predicts the next-day change, which is added to the current PM<sub>2.5</sub> concentration.</p></div>
                 <ol class="workflow-track">
                     <li><span>01</span><div><strong>Acquire</strong><p>OpenAQ PM<sub>2.5</sub> and NASA POWER weather</p></div></li>
                     <li><span>02</span><div><strong>Engineer</strong><p>Lags, rolling means, momentum and seasonality</p></div></li>
-                    <li><span>03</span><div><strong>Learn ΔPM<sub>2.5</sub></strong><p>Histogram gradient boosting with absolute-error loss</p></div></li>
+                    <li><span>03</span><div><strong>Learn ΔPM<sub>2.5</sub></strong><p>Gradient boosting with absolute-error loss</p></div></li>
                     <li><span>04</span><div><strong>Validate forward</strong><p>Five expanding chronological test windows</p></div></li>
-                    <li><span>05</span><div><strong>Forecast</strong><p>Today’s value + predicted change = tomorrow</p></div></li>
+                    <li><span>05</span><div><strong>Forecast</strong><p>Current value + predicted change = tomorrow</p></div></li>
                 </ol>
 
                 <div class="model-specification">
-                    <div class="spec-code" aria-label="Prediction equation">
-                        <span>Prediction logic</span>
-                        <p><i>PM</i><sub>t+1</sub> = <i>PM</i><sub>t</sub> + f(<b>x</b><sub>t</sub>)</p>
-                        <small>where f estimates the next-day change from the feature vector at day t</small>
-                    </div>
-                    <dl>
-                        <div><dt>Estimator</dt><dd>HistGradientBoostingRegressor</dd></div>
-                        <div><dt>Loss</dt><dd>Absolute error</dd></div>
-                        <div><dt>Learning rate</dt><dd>0.05</dd></div>
-                        <div><dt>Iterations</dt><dd>300</dd></div>
-                        <div><dt>Maximum leaf nodes</dt><dd>15</dd></div>
-                        <div><dt>Training period</dt><dd>2019-05-30 — 2025-02-17</dd></div>
-                    </dl>
+                    <div class="spec-code" aria-label="Prediction equation"><span>Prediction logic</span><p><i>PM</i><sub>t+1</sub> = <i>PM</i><sub>t</sub> + f(<b>x</b><sub>t</sub>)</p><small>f estimates the next-day change from the feature vector at day t</small></div>
+                    <dl><div><dt>Estimator</dt><dd>HistGradientBoostingRegressor</dd></div><div><dt>Loss</dt><dd>Absolute error</dd></div><div><dt>Learning rate</dt><dd>0.05</dd></div><div><dt>Iterations</dt><dd>300</dd></div><div><dt>Maximum leaf nodes</dt><dd>15</dd></div><div><dt>Training rows</dt><dd>1,636</dd></div></dl>
                 </div>
             </div>
         </section>
 
         <section class="responsible-model" aria-labelledby="responsible-title">
             <div class="container responsible-layout">
-                <div class="responsible-heading"><p>Responsible modelling</p><h2 id="responsible-title">Useful as research evidence—not as a public-health alert.</h2></div>
+                <div class="responsible-heading"><p>Responsible interpretation</p><h2 id="responsible-title">Research prototype, not a public-health alert</h2></div>
                 <div class="responsible-columns">
-                    <article><span>Intended use</span><ul><li>Educational analysis and reproducible experimentation</li><li>Short-horizon forecasting research</li><li>Prototype dashboard development</li></ul></article>
-                    <article><span>Known limitations</span><ul><li>One Lahore monitoring station</li><li>Long periods of missing PM<sub>2.5</sub></li><li>No direct traffic, fire, crop-burning or dust indicators</li><li>Sudden extreme spikes remain difficult</li></ul></article>
-                    <article><span>Next research step</span><ul><li>Add multiple monitors and satellite aerosol data</li><li>Estimate prediction intervals</li><li>Build secure scheduled ingestion and retraining</li></ul></article>
+                    <article><span>Appropriate use</span><p>Educational analysis, reproducible experimentation and short-horizon forecasting research.</p></article>
+                    <article><span>Current limitations</span><p>One monitoring station, long missing periods, no traffic, crop-burning, dust or satellite aerosol indicators.</p></article>
+                    <article><span>Next development</span><p>Multiple monitors, satellite variables, prediction intervals and scheduled data ingestion.</p></article>
                 </div>
             </div>
         </section>
 
         <section class="project-source" aria-labelledby="source-title">
             <div class="container source-shell">
-                <div><p>Reproducible project</p><h2 id="source-title">Inspect the code, assumptions and validation evidence.</h2><span>Python scripts cover data acquisition, feature engineering, model training and latest-available prediction.</span></div>
+                <div><p>Reproducible project</p><h2 id="source-title">Inspect the code and validation evidence</h2><span>Python scripts cover acquisition, feature engineering, training, evaluation and historical prediction export.</span></div>
                 <div class="source-actions"><a class="source-primary" href="https://github.com/DrHiraBenish/DrHiraBenish.github.io/tree/main/project-code/pakistan-air-quality-intelligence" target="_blank" rel="noopener noreferrer">View source on GitHub <span>↗</span></a><a href="https://github.com/DrHiraBenish/DrHiraBenish.github.io/blob/main/project-code/pakistan-air-quality-intelligence/MODEL_CARD.md" target="_blank" rel="noopener noreferrer">Read model card</a><a href="../../project-code/pakistan-air-quality-intelligence/reports/enhanced_model_cv_results.csv" download>Download validation CSV</a></div>
             </div>
         </section>
@@ -217,6 +188,6 @@
 
     <footer class="site-footer"><div class="container footer-layout"><div><a class="footer-brand" href="../../index.html">Dr. Hira Benish</a><p>Mathematics · Research · Data · Intelligence</p></div><nav aria-label="Footer navigation"><a href="../../about.html">About</a><a href="../../research.html">Research</a><a href="../../teaching.html">Teaching</a><a href="../../projects.html">Projects</a><a href="../../blogs.html">Blogs</a><a href="../../contact.html">Connect</a></nav><div class="footer-meta"><p>Associate Professor of Mathematics &amp; Head of Department</p><p>© <span data-current-year>2026</span> Dr. Hira Benish</p></div></div></footer>
     <script src="../../js/script.js?v=9"></script>
-    <script src="project.js?v=5"></script>
+    <script src="project.js?v=9"></script>
 </body>
 </html>

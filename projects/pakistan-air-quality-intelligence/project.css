@@ -27,7 +27,7 @@
 .forecast-stage {
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 78px);
+    min-height: 600px;
     padding: 27px 0 34px;
     color: var(--aq-white);
     background:

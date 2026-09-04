@@ -1,174 +1,99 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const foldChart = document.querySelector("[data-fold-chart]");
-    const metricButtons = [...document.querySelectorAll("[data-validation-metric]")];
-    const foldLabel = document.querySelector("[data-fold-label]");
-    const foldValue = document.querySelector("[data-fold-value]");
-    const foldDetail = document.querySelector("[data-fold-detail]");
-    const axisHigh = document.querySelector("[data-axis-high]");
-    const axisMid = document.querySelector("[data-axis-mid]");
+    const form = document.querySelector("[data-forecast-form]");
+    const dateInput = document.querySelector("#observation-date");
+    const currentPM = document.querySelector("[data-current-pm]");
+    const predictedPM = document.querySelector("[data-predicted-pm]");
+    const predictedChange = document.querySelector("[data-predicted-change]");
+    const forecastDate = document.querySelector("[data-forecast-date]");
+    const errorLabel = document.querySelector("[data-error-label]");
+    const message = document.querySelector("[data-console-message]");
+    const comparisonTrack = document.querySelector("[data-comparison-track]");
+    const forecastMarker = document.querySelector("[data-forecast-marker]");
+    const actualMarker = document.querySelector("[data-actual-marker]");
 
-    const folds = [
-        { fold: 1, model: 25.15, baseline: 26.63, improvement: 5.54 },
-        { fold: 2, model: 32.03, baseline: 33.81, improvement: 5.26 },
-        { fold: 3, model: 37.57, baseline: 41.71, improvement: 9.92 },
-        { fold: 4, model: 33.00, baseline: 34.28, improvement: 3.74 },
-        { fold: 5, model: 33.04, baseline: 35.99, improvement: 8.22 }
-    ];
-
-    let validationMetric = "model";
-    let selectedFold = 2;
-
-    const metricName = {
-        model: "model mean absolute error",
-        baseline: "persistence baseline mean absolute error",
-        improvement: "percentage improvement over persistence"
+    const verifiedForecasts = {
+        "2025-02-17": {
+            current: 143.00,
+            predicted: 157.54,
+            change: 14.54,
+            actual: 227.00,
+            error: 69.46,
+            forecastLabel: "18 February 2025"
+        }
     };
 
-    const updateFoldSummary = (item) => {
-        if (!foldLabel || !foldValue || !foldDetail) return;
-        foldLabel.textContent = `Fold ${item.fold}`;
-        foldValue.textContent = validationMetric === "improvement"
-            ? `${item.improvement.toFixed(2)}% improvement over baseline`
-            : `${item[validationMetric].toFixed(2)} µg/m³ ${validationMetric === "model" ? "model" : "baseline"} MAE`;
-        foldDetail.textContent = `${item.model.toFixed(2)} model MAE · ${item.baseline.toFixed(2)} baseline MAE · ${item.improvement.toFixed(2)}% improvement`;
+    const renderForecast = (record) => {
+        const scaleMaximum = Math.max(record.current, record.predicted, record.actual);
+        const predictedPosition = Math.min((record.predicted / scaleMaximum) * 100, 100);
+        const actualPosition = Math.min((record.actual / scaleMaximum) * 100, 100);
+
+        currentPM.textContent = record.current.toFixed(2);
+        predictedPM.textContent = record.predicted.toFixed(2);
+        predictedChange.textContent = `${record.change >= 0 ? "+" : ""}${record.change.toFixed(2)}`;
+        forecastDate.textContent = `Forecast for ${record.forecastLabel}`;
+        errorLabel.textContent = `${record.error.toFixed(2)} absolute error`;
+        forecastMarker.style.setProperty("--position", `${predictedPosition.toFixed(1)}%`);
+        actualMarker.style.setProperty("--position", `${actualPosition.toFixed(1)}%`);
+        forecastMarker.querySelector("span").textContent = record.predicted.toFixed(2);
+        actualMarker.querySelector("span").textContent = `${record.actual.toFixed(2)} actual`;
+        comparisonTrack.setAttribute(
+            "aria-label",
+            `Predicted PM2.5 ${record.predicted.toFixed(2)} compared with actual PM2.5 ${record.actual.toFixed(2)}`
+        );
+        message.textContent = "This verified historical case also reveals the model’s difficulty with sudden pollution spikes.";
+
+        predictedPM.closest("article").classList.remove("prediction-flash");
+        window.requestAnimationFrame(() => predictedPM.closest("article").classList.add("prediction-flash"));
     };
 
-    const renderFoldChart = () => {
-        if (!foldChart) return;
-        const values = folds.map((item) => item[validationMetric]);
-        const increment = validationMetric === "improvement" ? 2 : 5;
-        const maximum = Math.ceil(Math.max(...values) / increment) * increment;
+    if (form && dateInput) {
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const record = verifiedForecasts[dateInput.value];
 
-        foldChart.replaceChildren();
-        foldChart.setAttribute("aria-label", `${metricName[validationMetric]} across five chronological validation folds`);
-        if (axisHigh) axisHigh.textContent = validationMetric === "improvement" ? `${maximum}%` : String(maximum);
-        if (axisMid) axisMid.textContent = validationMetric === "improvement" ? `${maximum / 2}%` : String(maximum / 2);
+            if (!record) {
+                message.textContent = "Choose 17 February 2025 to run the verified historical model replay.";
+                return;
+            }
 
-        folds.forEach((item, index) => {
-            const button = document.createElement("button");
-            const bar = document.createElement("i");
-            const label = document.createElement("span");
-            const valueLabel = document.createElement("small");
-            const value = item[validationMetric];
+            renderForecast(record);
+        });
+    }
 
-            button.type = "button";
-            button.className = `aq-fold-bar${index === selectedFold ? " is-selected" : ""}`;
-            button.style.setProperty("--bar-height", `${Math.max(4, value / maximum * 100)}%`);
-            button.setAttribute("role", "listitem");
-            button.setAttribute(
-                "aria-label",
-                `Fold ${item.fold}: ${item.model.toFixed(2)} model MAE, ${item.baseline.toFixed(2)} baseline MAE, ${item.improvement.toFixed(2)} percent improvement`
-            );
+    const tabs = Array.from(document.querySelectorAll("[data-dashboard-tab]"));
+    const panels = Array.from(document.querySelectorAll("[data-dashboard-panel]"));
 
-            label.textContent = `Fold ${item.fold}`;
-            valueLabel.textContent = validationMetric === "improvement" ? `${value.toFixed(2)}%` : value.toFixed(2);
-            bar.setAttribute("aria-hidden", "true");
-            label.setAttribute("aria-hidden", "true");
-            valueLabel.setAttribute("aria-hidden", "true");
-            button.append(bar, label, valueLabel);
+    const activatePanel = (selectedTab) => {
+        const selectedPanelId = selectedTab.dataset.dashboardTab;
 
-            const selectFold = () => {
-                selectedFold = index;
-                foldChart.querySelectorAll(".aq-fold-bar").forEach((candidate) => candidate.classList.remove("is-selected"));
-                button.classList.add("is-selected");
-                updateFoldSummary(item);
-            };
-
-            button.addEventListener("click", selectFold);
-            button.addEventListener("focus", selectFold);
-            foldChart.append(button);
+        tabs.forEach((tab) => {
+            const isSelected = tab === selectedTab;
+            tab.classList.toggle("is-active", isSelected);
+            tab.setAttribute("aria-selected", String(isSelected));
         });
 
-        updateFoldSummary(folds[selectedFold]);
-    };
+        panels.forEach((panel) => {
+            const isSelected = panel.id === selectedPanelId;
+            panel.hidden = !isSelected;
+            panel.classList.toggle("is-active", isSelected);
 
-    metricButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            validationMetric = button.dataset.validationMetric;
-            metricButtons.forEach((candidate) => {
-                const active = candidate === button;
-                candidate.classList.toggle("is-active", active);
-                candidate.setAttribute("aria-pressed", String(active));
-            });
-            renderFoldChart();
-        });
-    });
-
-    renderFoldChart();
-
-    const modelButtons = [...document.querySelectorAll("[data-model-index]")];
-    const modelNote = document.querySelector("[data-model-note]");
-    const modelNotes = [
-        "The persistence baseline predicts that tomorrow will equal today. Its average MAE of 34.48 is the minimum standard every learned model must beat.",
-        "The direct-target Random Forest reduced average MAE to 33.20, a 2.84% improvement, but it did not beat persistence in the first fold.",
-        "Predicting the next-day change instead of the raw level lowered average MAE to 32.34 and improved on persistence by 6.12%.",
-        "The enhanced change model adds short-term pollution and weather momentum plus annual seasonality. It delivered the lowest average MAE."
-    ];
-
-    modelButtons.forEach((button) => {
-        const selectModel = () => {
-            modelButtons.forEach((candidate) => candidate.classList.toggle("is-selected", candidate === button));
-            if (modelNote) modelNote.textContent = modelNotes[Number(button.dataset.modelIndex)];
-        };
-        button.addEventListener("click", selectModel);
-        button.addEventListener("focus", selectModel);
-    });
-
-    const featureChart = document.querySelector("[data-feature-chart]");
-    const featureButtons = [...document.querySelectorAll("[data-feature-view]")];
-    const featureViews = {
-        groups: [
-            ["PM2.5 history", 83.3],
-            ["Weather", 16.7]
-        ],
-        features: [
-            ["3-day PM2.5 mean", 39.93],
-            ["Current PM2.5", 30.78],
-            ["PM2.5 lag 1", 6.89],
-            ["Temperature", 5.90],
-            ["Wind speed", 5.39],
-            ["7-day PM2.5 mean", 3.66],
-            ["Humidity", 3.19],
-            ["Precipitation", 2.21],
-            ["PM2.5 lag 3", 1.13],
-            ["PM2.5 lag 2", 0.94]
-        ]
-    };
-
-    const renderFeatures = (view) => {
-        if (!featureChart) return;
-        const values = featureViews[view];
-        const maximum = Math.max(...values.map((item) => item[1]));
-        featureChart.replaceChildren();
-
-        values.forEach(([label, value]) => {
-            const row = document.createElement("div");
-            const name = document.createElement("span");
-            const track = document.createElement("i");
-            const fill = document.createElement("b");
-            const number = document.createElement("strong");
-
-            row.className = "aq-feature-row";
-            row.style.setProperty("--feature-width", `${value / maximum * 100}%`);
-            name.textContent = label;
-            number.textContent = `${value.toFixed(view === "groups" ? 1 : 2)}%`;
-            track.setAttribute("aria-hidden", "true");
-            track.append(fill);
-            row.append(name, track, number);
-            featureChart.append(row);
+            if (isSelected) {
+                panel.classList.remove("panel-enter");
+                window.requestAnimationFrame(() => panel.classList.add("panel-enter"));
+            }
         });
     };
 
-    featureButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            featureButtons.forEach((candidate) => {
-                const active = candidate === button;
-                candidate.classList.toggle("is-active", active);
-                candidate.setAttribute("aria-pressed", String(active));
-            });
-            renderFeatures(button.dataset.featureView);
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => activatePanel(tab));
+        tab.addEventListener("keydown", (event) => {
+            if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+            event.preventDefault();
+            const direction = event.key === "ArrowRight" ? 1 : -1;
+            const nextIndex = (index + direction + tabs.length) % tabs.length;
+            tabs[nextIndex].focus();
+            activatePanel(tabs[nextIndex]);
         });
     });
-
-    renderFeatures("groups");
 });

@@ -50,3 +50,83 @@
     .home-statement .statement-copy { grid-column: auto; padding-top: 0; }
     .home-statement .professional-impact { grid-column: auto; margin-top: 12px; }
 }
+
+.signature-quote {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 0 66px;
+    background:
+        radial-gradient(circle at 84% 28%, rgba(111, 183, 176, 0.1), transparent 24%),
+        #fffdfa;
+    border-top: 1px solid rgba(73, 44, 55, 0.1);
+}
+
+.signature-quote-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 82px minmax(0, 930px);
+    justify-content: center;
+    gap: 22px;
+}
+
+.signature-quote-mark {
+    color: rgba(141, 64, 88, 0.22);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 7rem;
+    line-height: 0.72;
+}
+
+.signature-quote blockquote {
+    margin: 0;
+}
+
+.signature-quote blockquote p {
+    margin: 0;
+    color: #352b31;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: clamp(2rem, 3.5vw, 3.75rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+}
+
+.signature-quote blockquote footer {
+    margin-top: 22px;
+    color: #8d4058;
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.signature-quote blockquote footer::before {
+    content: "— ";
+}
+
+.signature-quote-line {
+    position: absolute;
+    right: 6%;
+    bottom: -34px;
+    width: 230px;
+    height: 92px;
+    border: 1px solid rgba(141, 64, 88, 0.13);
+    border-radius: 50%;
+    transform: rotate(-8deg);
+    animation: signature-line-drift 8s ease-in-out infinite;
+}
+
+@keyframes signature-line-drift {
+    0%, 100% { transform: translateX(0) rotate(-8deg); }
+    50% { transform: translateX(-18px) rotate(-4deg); }
+}
+
+@media (max-width: 680px) {
+    .signature-quote { padding: 48px 0 46px; }
+    .signature-quote-inner { grid-template-columns: 44px 1fr; gap: 10px; }
+    .signature-quote-mark { font-size: 4.6rem; }
+    .signature-quote blockquote p { font-size: clamp(1.85rem, 8vw, 2.65rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .signature-quote-line { animation: none; }
+}

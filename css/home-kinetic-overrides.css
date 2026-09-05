@@ -1,0 +1,52 @@
+/* Final cascade layer for the kinetic editorial homepage preview. */
+.home-statement.section-pad { padding: 70px 0 58px; }
+
+.home-statement .statement-layout {
+    grid-template-columns: 92px minmax(0, 1.15fr) minmax(270px, 0.72fr);
+    padding: 0;
+    gap: 38px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+}
+
+.home-statement .statement-layout h2 {
+    font-size: clamp(2.55rem, 4.6vw, 5rem);
+    line-height: 0.98;
+}
+
+.home-statement .statement-copy {
+    padding-top: 30px;
+    font-size: 0.95rem;
+    line-height: 1.72;
+}
+
+.home-statement .professional-impact {
+    grid-column: 2 / -1;
+    margin-top: 28px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .home-statement .statement-layout:hover,
+    .overview-panel:hover {
+        border-color: transparent;
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+@media (max-width: 1080px) {
+    .home-statement .statement-layout { grid-template-columns: 78px minmax(0, 1fr); }
+    .home-statement .statement-copy { grid-column: 2; padding-top: 0; }
+    .home-statement .professional-impact { grid-column: 1 / -1; }
+}
+
+@media (max-width: 760px) {
+    .home-statement.section-pad { padding: 44px 0; }
+    .home-statement .statement-layout { grid-template-columns: 1fr; padding: 0; gap: 18px; }
+    .home-statement .statement-layout h2 { font-size: clamp(2.55rem, 12vw, 3.6rem); }
+    .home-statement .statement-copy { grid-column: auto; padding-top: 0; }
+    .home-statement .professional-impact { grid-column: auto; margin-top: 12px; }
+}
